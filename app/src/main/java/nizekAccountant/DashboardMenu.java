@@ -36,17 +36,16 @@ public class DashboardMenu extends javax.swing.JFrame {
         initComponents();
 //        jMenuBar1.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         btnmanager = new GraphicsManager(102, 102, 255, dimension);
-     //   setVisible(true);
-      //  peopleDocList.addItem("Baran");
-      //  peopleDocList.addItem("Sharifi");
-      //  System.out.println("FFF: " + (String)peopleDocList.getSelectedItem());
+        //   setVisible(true);
+        //  peopleDocList.addItem("Baran");
+        //  peopleDocList.addItem("Sharifi");
+        //  System.out.println("FFF: " + (String)peopleDocList.getSelectedItem());
 
-
-    Landpage(LoginPanel);
+        Landpage(LoginPanel);
         //  Landpage(LoginError);
 //        LoginError.setVisible(false);
 //        //   jMenuBar1.getContentPane().setBackground( Color.YELLOW ); 
-       
+
         addCheckLogic = new AddCheckLogic();
         addDocLogic = new AddDocLogic();
         addUserLogic = new AddUserLogic();
@@ -79,13 +78,11 @@ public class DashboardMenu extends javax.swing.JFrame {
         btnmanager.btnChangeColor(dashboardBtnaddDoc);
         btnmanager.btnChangeColor(backshowDoc1);
         btnmanager.btnChangeColor(backshowDoc);
-        btnmanager.btnChangeColor(ShowDocsbtn);        
+        btnmanager.btnChangeColor(ShowDocsbtn);
         btnmanager.btnChangeColor(backshowCheck1);
         btnmanager.btnChangeColor(backshowCheck);
-                
-                
-//=============changing lables===========================
 
+//=============changing lables===========================
         //============changing size  the registered buttons ============================
         btnmanager.btnSize(submitDoc);
         btnmanager.btnSize(registerChangeCheck);
@@ -145,7 +142,6 @@ public class DashboardMenu extends javax.swing.JFrame {
         weeklyDoc = new javax.swing.JRadioButton();
         MonthlyDoc = new javax.swing.JRadioButton();
         jLabel35 = new javax.swing.JLabel();
-        payee5 = new javax.swing.JTextField();
         Monthscheck = new javax.swing.JComboBox<>();
         peopleDocList = new javax.swing.JComboBox<>();
         addDocPanel = new javax.swing.JPanel();
@@ -231,7 +227,6 @@ public class DashboardMenu extends javax.swing.JFrame {
         docsTable = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         backshowCheck1 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         jFrame1.setTitle("checkFrame");
 
@@ -643,12 +638,6 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("فیلتر زمان");
 
-        payee5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                payee5ActionPerformed(evt);
-            }
-        });
-
         Monthscheck.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد ", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن ", "اسفند" }));
         Monthscheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -666,63 +655,58 @@ public class DashboardMenu extends javax.swing.JFrame {
         showDocPanel.setLayout(showDocPanelLayout);
         showDocPanelLayout.setHorizontalGroup(
             showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
+            .addGroup(showDocPanelLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
+                        .addComponent(Monthscheck, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(338, 338, 338))
                     .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jLabel35)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel31))
-                    .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(backshowDoc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(showDocPanelLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
                         .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dailyِDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(showDocPanelLayout.createSequentialGroup()
+                                .addComponent(dailyِDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel23))
                             .addComponent(weeklyDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(MonthlyDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(showDocPanelLayout.createSequentialGroup()
-                                .addComponent(Monthscheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)
-                                .addComponent(payee5, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel23)))
-                        .addGap(21, 74, Short.MAX_VALUE))))
+                            .addComponent(jLabel35))
+                        .addContainerGap(11, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121))
+                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
+                        .addComponent(backshowDoc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98))
+                    .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
         showDocPanelLayout.setVerticalGroup(
             showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(showDocPanelLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31)
-                    .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel35)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dailyِDoc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(weeklyDoc)))
+                .addComponent(jLabel31)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dailyِDoc)
+                    .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(weeklyDoc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MonthlyDoc)
-                .addGap(24, 24, 24)
-                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Monthscheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(payee5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23))
-                .addGap(36, 36, 36)
-                .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(Monthscheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(186, 186, 186))
+                .addGap(31, 31, 31))
         );
 
         payee.addActionListener(new java.awt.event.ActionListener() {
@@ -1478,13 +1462,6 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout docsReportLayout = new javax.swing.GroupLayout(docsReport);
         docsReport.setLayout(docsReportLayout);
         docsReportLayout.setHorizontalGroup(
@@ -1500,11 +1477,6 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addComponent(backshowCheck1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(docsReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(docsReportLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jButton1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         docsReportLayout.setVerticalGroup(
             docsReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1514,11 +1486,6 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
                 .addComponent(backshowCheck1))
-            .addGroup(docsReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(docsReportLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jButton1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1694,12 +1661,11 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
 
-   System.out.println(emailfieldLogin.getText());
-loginLogic = new LoginLogic();       
-        if(loginLogic.canEnter(emailfieldLogin.getText(),passwordField.getText())){
-             Landpage(dashboard);
+        System.out.println(emailfieldLogin.getText());
+        loginLogic = new LoginLogic();
+        if (loginLogic.canEnter(emailfieldLogin.getText(), passwordField.getText())) {
+            Landpage(dashboard);
         }
-       
 
         //  enterBtn.setBackground(Color.red);
         //}
@@ -1711,7 +1677,7 @@ loginLogic = new LoginLogic();
 
     private void dashboardBtnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnaddActionPerformed
         Landpage(addcheckPanel);
- 
+
     }//GEN-LAST:event_dashboardBtnaddActionPerformed
 
     private void dashboardBtnshowDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnshowDocActionPerformed
@@ -1774,20 +1740,16 @@ loginLogic = new LoginLogic();
     }//GEN-LAST:event_backshowDoc1ActionPerformed
 
     private void registerCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCheckActionPerformed
-      AddCheckLogic addCheck= new AddCheckLogic();
-        String payeeDoc=payee2.getText();
-        String discriptionDoc=discriptionText.getText();
-        String costDoc =payee2Cost.getText();
-        addCheck.passCheckToDatabase(payeeDoc,discriptionDoc, costDoc);
+        AddCheckLogic addCheck = new AddCheckLogic();
+        String payeeDoc = payee2.getText();
+        String discriptionDoc = discriptionText.getText();
+        String costDoc = payee2Cost.getText();
+        addCheck.passCheckToDatabase(payeeDoc, discriptionDoc, costDoc);
     }//GEN-LAST:event_registerCheckActionPerformed
 
     private void registerChangeCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerChangeCheckActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_registerChangeCheckActionPerformed
-
-    private void payee5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payee5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_payee5ActionPerformed
 
     private void backshowDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backshowDocActionPerformed
 
@@ -1800,38 +1762,38 @@ loginLogic = new LoginLogic();
     }//GEN-LAST:event_ShowDocsbtnActionPerformed
 
     private void backshowCheck1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backshowCheck1ActionPerformed
-     Landpage(dashboard);
+        Landpage(dashboard);
     }//GEN-LAST:event_backshowCheck1ActionPerformed
 
     private void backshowCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backshowCheckActionPerformed
-       Landpage(dashboard);
+        Landpage(dashboard);
     }//GEN-LAST:event_backshowCheckActionPerformed
 
     private void submitDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitDocActionPerformed
-      AddDocLogic addDoc= new AddDocLogic();
-        String payeeDoc=payee.getText();
-        String discriptionDoc=discription.getText();
-        String costDoc =cost.getText();
-        addDoc.passDocToDatabase(payeeDoc,discriptionDoc, costDoc);
-    
-       
+        AddDocLogic addDoc = new AddDocLogic();
+        String payeeDoc = payee.getText();
+        String discriptionDoc = discription.getText();
+        String costDoc = cost.getText();
+        addDoc.passDocToDatabase(payeeDoc, discriptionDoc, costDoc);
+
+
     }//GEN-LAST:event_submitDocActionPerformed
 
     private void btnconfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconfirmActionPerformed
-      AddUserLogic addUser= new AddUserLogic();
-        String emailfieldUser=emailField.getText();
-        String AddressfieldUser=AddressField.getText();
-        String UserName=addName.getText();
-        String UserId=addId.getText();
-        String phone=phoneField.getText();
-        
-         addUser.passUserTodataBase(emailfieldUser,AddressfieldUser,UserName,UserId,phone);
-      //   peopleDocList.addItem(UserName);
-        
+        AddUserLogic addUser = new AddUserLogic();
+        String emailfieldUser = emailField.getText();
+        String AddressfieldUser = AddressField.getText();
+        String UserName = addName.getText();
+        String UserId = addId.getText();
+        String phone = phoneField.getText();
+
+        addUser.passUserTodataBase(emailfieldUser, AddressfieldUser, UserName, UserId, phone);
+        //   peopleDocList.addItem(UserName);
+
     }//GEN-LAST:event_btnconfirmActionPerformed
 
     private void dailyِDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dailyِDocActionPerformed
-      
+
     }//GEN-LAST:event_dailyِDocActionPerformed
 
     private void MonthlyDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthlyDocActionPerformed
@@ -1839,21 +1801,21 @@ loginLogic = new LoginLogic();
     }//GEN-LAST:event_MonthlyDocActionPerformed
 
     private void MonthscheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthscheckActionPerformed
-      String chosenMonth=Monthscheck.getSelectedItem().toString();
-    //  System.out.println(chosenMonth);
-      
-    //  if(chosenMonth.equals("فروردین")){
-    //  System.out.println("yay");
-     // }
+        String chosenMonth = Monthscheck.getSelectedItem().toString();
+        //  System.out.println(chosenMonth);
+
+        //  if(chosenMonth.equals("فروردین")){
+        //  System.out.println("yay");
+        // }
     }//GEN-LAST:event_MonthscheckActionPerformed
 
     private void MonthscheckshowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthscheckshowActionPerformed
-      String chosenMonthCh=Monthscheck.getSelectedItem().toString();
+        String chosenMonthCh = Monthscheck.getSelectedItem().toString();
     }//GEN-LAST:event_MonthscheckshowActionPerformed
 
     private void peopleDocListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peopleDocListActionPerformed
-               
-      
+
+
     }//GEN-LAST:event_peopleDocListActionPerformed
 
     private void addbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbackActionPerformed
@@ -1863,39 +1825,17 @@ loginLogic = new LoginLogic();
     }//GEN-LAST:event_addbackActionPerformed
 
     private void confirmCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmCategoryActionPerformed
-        AddUserLogic addUser= new AddUserLogic();
-        String emailfieldUserCategory=categoryFieldEmail.getText();
-        String AddressfieldUserCategory=categoryFieldَAddress.getText();
-        String UserNameCategory=categoryFieldName.getText();
-        String UserIdCategory=categoryFieldId.getText();
-        String phoneCategory=categoryFieldPhone.getText();
-        String category=categoryFieldName.getText();
-        addUser.passUserTodataBase(UserIdCategory,UserNameCategory,phoneCategory,AddressfieldUserCategory,category);
+        AddUserLogic addUser = new AddUserLogic();
+        String emailfieldUserCategory = categoryFieldEmail.getText();
+        String AddressfieldUserCategory = categoryFieldَAddress.getText();
+        String UserNameCategory = categoryFieldName.getText();
+        String UserIdCategory = categoryFieldId.getText();
+        String phoneCategory = categoryFieldPhone.getText();
+        String category = categoryFieldName.getText();
+        addUser.passUserTodataBase(UserIdCategory, UserNameCategory, phoneCategory, AddressfieldUserCategory, category);
         peopleDocList.addItem(categoryFieldName.getText());
 
     }//GEN-LAST:event_confirmCategoryActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//JFrame frame = new JFrame("Bar Chart");
-//
-//            Diagram chart = new Diagram();
-//
-//            chart.addBar(Color.red, 100);
-//
-//            chart.addBar(Color.green, 8);
-//
-//            chart.addBar(Color.blue, 54);
-//
-//            chart.addBar(Color.black, 23);
-//
-//            frame.getContentPane().add(chart);
-//
-//            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//
-//            frame.pack();
-//
-//            frame.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void Landpage(JPanel panel) {
         // LoginError.setVisible(panel==LoginError);
@@ -1943,7 +1883,7 @@ loginLogic = new LoginLogic();
             java.util.logging.Logger.getLogger(DashboardMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-           System.out.println("validatro "+Validator.emailIsValid("test@gmail.com"));
+        System.out.println("validatro " + Validator.emailIsValid("test@gmail.com"));
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -2015,7 +1955,6 @@ loginLogic = new LoginLogic();
     private javax.swing.JRadioButton employeeBtn;
     private javax.swing.JButton enterBtn;
     private javax.swing.JToggleButton isCreditorToggle;
-    private javax.swing.JButton jButton1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
@@ -2073,7 +2012,6 @@ loginLogic = new LoginLogic();
     private javax.swing.JTextField payee3;
     private javax.swing.JTextField payee3Cost;
     private javax.swing.JTextField payee4;
-    private javax.swing.JTextField payee5;
     protected javax.swing.JComboBox<String> peopleDocList;
     private javax.swing.JTextField phoneField;
     private javax.swing.JButton registerChangeCheck;
