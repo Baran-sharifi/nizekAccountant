@@ -4,15 +4,9 @@
  */
 package nizekAccountant;
 
-//import javax.swing.JTextField;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-/**
- *
- * @author Lenovo
- */
-public class LoginLogic extends DashboardMenu {
+ 
+public class LoginLogic {
 
     //  String emailFieldInputValue;
     //  String passwordFieldInputValue;

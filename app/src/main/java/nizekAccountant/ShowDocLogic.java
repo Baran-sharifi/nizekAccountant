@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Lenovo
  */
-public class ShowDocLogic extends DashboardMenu {
+public class ShowDocLogic{
 //ArrayList<String> PeopleDoc=new ArrayList<>();
   //PeopleDoc={sf.asff.dfs.}
     public ShowDocLogic() {
