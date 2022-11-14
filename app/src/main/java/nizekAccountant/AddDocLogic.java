@@ -14,7 +14,7 @@ public class AddDocLogic {
     }
     
     public String[] passDocToDatabase(String payee,String cost,String discripton){
-   
+   //gets this from logic
     return null;
     }
 }

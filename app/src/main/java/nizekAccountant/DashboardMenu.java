@@ -17,9 +17,9 @@ public class DashboardMenu extends javax.swing.JFrame {
     private AddCheckLogic addCheckLogic;
     private AddDocLogic addDocLogic;
     private AddUserLogic addUserLogic;
-    private ShowCheckLogic showCheckLogic;
+    private ShowCheckRepository showCheckLogic;
     private ChangeStateCheckLogic changeStateCheckLogic;
-    private ShowDocLogic showDocLogic;
+    private ShowDocRepository showDocLogic;
     private GraphicsManager btnmanager;
     //  private ButtonRounder btnRounder;
 
@@ -42,9 +42,9 @@ public class DashboardMenu extends javax.swing.JFrame {
         addCheckLogic = new AddCheckLogic();
         addDocLogic = new AddDocLogic();
         addUserLogic = new AddUserLogic();
-        showCheckLogic = new ShowCheckLogic();
+        showCheckLogic = new ShowCheckRepository();
         changeStateCheckLogic = new ChangeStateCheckLogic();
-        showDocLogic = new ShowDocLogic();
+        showDocLogic = new ShowDocRepository();
 
         //   ButtonRounder btnRounder =new ButtonRounder(10);
         //===========changing button colors====================
@@ -143,6 +143,10 @@ public class DashboardMenu extends javax.swing.JFrame {
         payeeDocRBtn = new javax.swing.JRadioButton();
         costDocRBtn = new javax.swing.JRadioButton();
         jLabel36 = new javax.swing.JLabel();
+        DRangeDocsDay = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        DRangeDocsYear = new javax.swing.JTextField();
+        DRangeDocsMonth = new javax.swing.JTextField();
         addDocPanel = new javax.swing.JPanel();
         payee = new javax.swing.JTextField();
         submitDoc = new javax.swing.JButton();
@@ -202,20 +206,25 @@ public class DashboardMenu extends javax.swing.JFrame {
         dashboardBtnaddDoc = new javax.swing.JButton();
         dashboardlabel = new javax.swing.JLabel();
         showCheckpanel = new javax.swing.JPanel();
-        jLabel27 = new javax.swing.JLabel();
-        payee4 = new javax.swing.JTextField();
-        ShowCheckDocs2 = new javax.swing.JButton();
-        jLabel28 = new javax.swing.JLabel();
+        payeeLabelCheck = new javax.swing.JLabel();
+        ShowChecksbtn = new javax.swing.JButton();
         backshowDoc1 = new javax.swing.JButton();
-        dailyCheck = new javax.swing.JRadioButton();
-        weeklyCheck = new javax.swing.JRadioButton();
-        monthlyCheck = new javax.swing.JRadioButton();
+        dailyCheckRBtn = new javax.swing.JRadioButton();
+        weeklyCheckRBtn = new javax.swing.JRadioButton();
+        MonthlyCheckRBtn = new javax.swing.JRadioButton();
+        MonthscheckList = new javax.swing.JComboBox<>();
+        peopleCheckList = new javax.swing.JComboBox<>();
+        costLabelCheck = new javax.swing.JLabel();
+        CostCheckList = new javax.swing.JComboBox<>();
+        TimeCheckRBtn = new javax.swing.JRadioButton();
+        payeeCheckRBtn = new javax.swing.JRadioButton();
+        costCheckRBtn = new javax.swing.JRadioButton();
+        jLabel37 = new javax.swing.JLabel();
+        DRangeChecksDay = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        DRangeChecksYear = new javax.swing.JTextField();
+        DRangeChecksMonth = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        checkDayField = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        checkMonthField = new javax.swing.JTextField();
-        checkYearField = new javax.swing.JTextField();
-        Monthscheckshow = new javax.swing.JComboBox<>();
         checksReport = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         checksTable = new javax.swing.JTable();
@@ -605,12 +614,10 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         jLabel31.setBackground(new java.awt.Color(102, 102, 255));
         jLabel31.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("نمایش سند");
 
         timeFilter.add(dailyِDoc);
         dailyِDoc.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
-        dailyِDoc.setForeground(new java.awt.Color(255, 255, 255));
         dailyِDoc.setText("روزانه");
         dailyِDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -620,12 +627,10 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         timeFilter.add(weeklyDoc);
         weeklyDoc.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
-        weeklyDoc.setForeground(new java.awt.Color(255, 255, 255));
         weeklyDoc.setText("هفتگی");
 
         timeFilter.add(MonthlyDoc);
         MonthlyDoc.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
-        MonthlyDoc.setForeground(new java.awt.Color(255, 255, 255));
         MonthlyDoc.setText("ماهانه");
         MonthlyDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -641,6 +646,7 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        peopleDocList.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         peopleDocList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 peopleDocListActionPerformed(evt);
@@ -650,6 +656,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         costLabel.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         costLabel.setText("قیمت");
 
+        CostDocList.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         CostDocList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CostDocListActionPerformed(evt);
@@ -686,6 +693,9 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel36.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         jLabel36.setText("فیلترها");
 
+        jLabel23.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel23.setText("بازه ی زمانی مورد نظر را وارد کنید");
+
         javax.swing.GroupLayout showDocPanelLayout = new javax.swing.GroupLayout(showDocPanel);
         showDocPanel.setLayout(showDocPanelLayout);
         showDocPanelLayout.setHorizontalGroup(
@@ -707,7 +717,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(payeeDocRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(showDocPanelLayout.createSequentialGroup()
-                                .addComponent(Monthscheck, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Monthscheck, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(costDocRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -723,14 +733,30 @@ public class DashboardMenu extends javax.swing.JFrame {
                                 .addGap(78, 78, 78)
                                 .addComponent(payeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(showDocPanelLayout.createSequentialGroup()
-                                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(CostDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(backshowDoc))
+                                .addComponent(CostDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(40, 40, 40))))
+            .addGroup(showDocPanelLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(backshowDoc)
+                    .addGroup(showDocPanelLayout.createSequentialGroup()
+                        .addComponent(DRangeDocsYear, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(DRangeDocsMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DRangeDocsDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)))
+                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(showDocPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(showDocPanelLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         showDocPanelLayout.setVerticalGroup(
             showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -761,11 +787,17 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CostDocList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(78, 78, 78)
+                .addGap(18, 18, 18)
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(backshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(128, Short.MAX_VALUE))
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DRangeDocsDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DRangeDocsYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DRangeDocsMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         payee.addActionListener(new java.awt.event.ActionListener() {
@@ -1094,9 +1126,9 @@ public class DashboardMenu extends javax.swing.JFrame {
         tablePanelLayout.setVerticalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tablePanelLayout.createSequentialGroup()
-                .addGap(117, 117, 117)
+                .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGap(129, 129, 129)
                 .addComponent(tableback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
         );
@@ -1284,7 +1316,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dashboardBtnaddDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dashboardBtnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(309, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(dashboardlabel)
@@ -1308,26 +1340,16 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addContainerGap(136, Short.MAX_VALUE))
         );
 
-        jLabel27.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        jLabel27.setText("نام طرف حساب");
+        payeeLabelCheck.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        payeeLabelCheck.setText("طرف حساب");
 
-        payee4.addActionListener(new java.awt.event.ActionListener() {
+        ShowChecksbtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        ShowChecksbtn.setText("نمایش سندها");
+        ShowChecksbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                payee4ActionPerformed(evt);
+                ShowChecksbtnActionPerformed(evt);
             }
         });
-
-        ShowCheckDocs2.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        ShowCheckDocs2.setText("نمایش چک ها");
-        ShowCheckDocs2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ShowCheckDocs2ActionPerformed(evt);
-            }
-        });
-
-        jLabel28.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel28.setText("نمایش چک");
 
         backshowDoc1.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         backshowDoc1.setText("بازگشت به داشبورد اصلی");
@@ -1337,120 +1359,196 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
-        timeFilter.add(dailyCheck);
-        dailyCheck.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
-        dailyCheck.setForeground(new java.awt.Color(255, 255, 255));
-        dailyCheck.setText("روزانه");
-
-        timeFilter.add(weeklyCheck);
-        weeklyCheck.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
-        weeklyCheck.setForeground(new java.awt.Color(255, 255, 255));
-        weeklyCheck.setText("هفتگی");
-
-        timeFilter.add(monthlyCheck);
-        monthlyCheck.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
-        monthlyCheck.setForeground(new java.awt.Color(255, 255, 255));
-        monthlyCheck.setText("ماهانه");
-
-        jLabel5.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("فیلتر زمان");
-
-        jLabel8.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        jLabel8.setText("تاریخ چک");
-
-        Monthscheckshow.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد ", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن ", "اسفند" }));
-        Monthscheckshow.addActionListener(new java.awt.event.ActionListener() {
+        timeFilter.add(dailyCheckRBtn);
+        dailyCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        dailyCheckRBtn.setText("روزانه");
+        dailyCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MonthscheckshowActionPerformed(evt);
+                dailyCheckRBtnActionPerformed(evt);
             }
         });
+
+        timeFilter.add(weeklyCheckRBtn);
+        weeklyCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        weeklyCheckRBtn.setText("هفتگی");
+        weeklyCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weeklyCheckRBtnActionPerformed(evt);
+            }
+        });
+
+        timeFilter.add(MonthlyCheckRBtn);
+        MonthlyCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        MonthlyCheckRBtn.setText("ماهانه");
+        MonthlyCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MonthlyCheckRBtnActionPerformed(evt);
+            }
+        });
+
+        MonthscheckList.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        MonthscheckList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد ", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن ", "اسفند" }));
+        MonthscheckList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MonthscheckListActionPerformed(evt);
+            }
+        });
+
+        peopleCheckList.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        peopleCheckList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                peopleCheckListActionPerformed(evt);
+            }
+        });
+
+        costLabelCheck.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        costLabelCheck.setText("قیمت");
+
+        CostCheckList.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        CostCheckList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CostCheckListActionPerformed(evt);
+            }
+        });
+
+        filters.add(TimeCheckRBtn);
+        TimeCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        TimeCheckRBtn.setText("فیلتر زمان");
+        TimeCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TimeCheckRBtnActionPerformed(evt);
+            }
+        });
+
+        filters.add(payeeCheckRBtn);
+        payeeCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        payeeCheckRBtn.setText("طرف حساب");
+        payeeCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payeeCheckRBtnActionPerformed(evt);
+            }
+        });
+
+        filters.add(costCheckRBtn);
+        costCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        costCheckRBtn.setText("فیلتر قیمت");
+        costCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                costCheckRBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel37.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel37.setText("فیلترها");
+
+        jLabel24.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel24.setText("بازه ی زمانی مورد نظر را وارد کنید");
+
+        jLabel5.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel5.setText("نمایش چک ها");
 
         javax.swing.GroupLayout showCheckpanelLayout = new javax.swing.GroupLayout(showCheckpanel);
         showCheckpanel.setLayout(showCheckpanelLayout);
         showCheckpanelLayout.setHorizontalGroup(
             showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addComponent(backshowDoc1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ShowCheckDocs2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
             .addGroup(showCheckpanelLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(checkYearField, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(checkMonthField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(checkDayField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(showCheckpanelLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showCheckpanelLayout.createSequentialGroup()
-                        .addComponent(Monthscheckshow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(payee4, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                .addComponent(MonthlyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(weeklyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dailyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TimeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(payeeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                .addComponent(MonthscheckList, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(costCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(87, 87, 87))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
-                                .addComponent(jLabel27)
-                                .addGap(8, 8, 8))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5)
                                 .addGap(16, 16, 16))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
-                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dailyCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                .addComponent(costLabelCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(78, 78, 78)
+                                .addComponent(payeeLabelCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                .addComponent(CostCheckList, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(peopleCheckList, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40))))
+            .addGroup(showCheckpanelLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(backshowDoc1)
                     .addGroup(showCheckpanelLayout.createSequentialGroup()
-                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(weeklyCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(monthlyCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(DRangeChecksYear, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(DRangeChecksMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DRangeChecksDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)))
+                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(showCheckpanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(showCheckpanelLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(ShowChecksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         showCheckpanelLayout.setVerticalGroup(
             showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(showCheckpanelLayout.createSequentialGroup()
-                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(showCheckpanelLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel28))
-                    .addGroup(showCheckpanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dailyCheck)))
+                .addContainerGap()
+                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(payeeCheckRBtn)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(weeklyCheck)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(monthlyCheck)
-                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(showCheckpanelLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel27)
-                            .addComponent(payee4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(showCheckpanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Monthscheckshow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(showCheckpanelLayout.createSequentialGroup()
-                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(checkDayField)
-                            .addComponent(checkYearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(checkMonthField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ShowCheckDocs2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(backshowDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(102, 102, 102))
+                    .addComponent(TimeCheckRBtn)
+                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dailyCheckRBtn)
+                    .addComponent(weeklyCheckRBtn)
+                    .addComponent(MonthlyCheckRBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(costCheckRBtn)
+                    .addComponent(MonthscheckList, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(payeeLabelCheck)
+                    .addComponent(costLabelCheck))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(peopleCheckList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CostCheckList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DRangeChecksDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DRangeChecksYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DRangeChecksMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backshowDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ShowChecksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         checksReport.setFont(new java.awt.Font("B Roya", 0, 14)); // NOI18N
@@ -1519,9 +1617,10 @@ public class DashboardMenu extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "طرف حساب", "بستانکار", "بدهکار", "تاریخ"
+                "طرف حساب", "بدهکار", "بستانکار", "تاریخ"
             }
         ));
+        docsTable.setToolTipText("");
         jScrollPane4.setViewportView(docsTable);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1557,8 +1656,8 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, docsReportLayout.createSequentialGroup()
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(backshowCheck1))
         );
 
@@ -1584,9 +1683,9 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 5, Short.MAX_VALUE)
+                    .addGap(0, 53, Short.MAX_VALUE)
                     .addComponent(showDocPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 6, Short.MAX_VALUE)))
+                    .addGap(0, 54, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1599,9 +1698,9 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(21, Short.MAX_VALUE)
+                    .addContainerGap(104, Short.MAX_VALUE)
                     .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(19, Short.MAX_VALUE)))
+                    .addContainerGap(102, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1611,7 +1710,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(12, 12, 12)
                     .addComponent(showCheckpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(13, Short.MAX_VALUE)))
+                    .addContainerGap(95, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1807,18 +1906,6 @@ public class DashboardMenu extends javax.swing.JFrame {
         Landpage(dashboard);
     }//GEN-LAST:event_addCheckBackActionPerformed
 
-    private void payee4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payee4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_payee4ActionPerformed
-
-    private void ShowCheckDocs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowCheckDocs2ActionPerformed
-        Landpage(checksReport);
-    }//GEN-LAST:event_ShowCheckDocs2ActionPerformed
-
-    private void backshowDoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backshowDoc1ActionPerformed
-        Landpage(dashboard);
-    }//GEN-LAST:event_backshowDoc1ActionPerformed
-
     private void confirmCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmCategoryActionPerformed
         AddUserLogic addUser = new AddUserLogic();
         String emailfieldUser = emailField.getText();
@@ -1827,7 +1914,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         String UserId = addId.getText();
         String phone = phoneField.getText();
 
-        addUser.passUserTodataBase(emailfieldUser, AddressfieldUser, UserName, UserId, phone);
+//        addUser.passUserTodataBase(emailfieldUser, AddressfieldUser, UserName, UserId, phone);
         peopleDocList.addItem(categoryFieldName.getText());
 
 
@@ -1878,15 +1965,11 @@ public class DashboardMenu extends javax.swing.JFrame {
         } else if (clientBtn.isSelected()) {
             type = "client";
         }
-
-        addUser.passUserTodataBase(userId, userName, phone, addressfieldUser, type);
+//  refactor id to nationalId
+        //     addUser.passUserTodataBase(userId, userName, phone, addressfieldUser, type);
         peopleDocList.addItem(userName);
 
     }//GEN-LAST:event_btnconfirmActionPerformed
-
-    private void MonthscheckshowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthscheckshowActionPerformed
-        String chosenMonthCh = Monthscheck.getSelectedItem().toString();
-    }//GEN-LAST:event_MonthscheckshowActionPerformed
 
     private void employeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeBtnActionPerformed
         employeeBtn.isSelected();
@@ -1901,15 +1984,15 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_partnerBtnActionPerformed
 
     private void costDocRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costDocRBtnActionPerformed
-        filterVisibility(costDocRBtn);
+        filterVisibelity(costDocRBtn);
     }//GEN-LAST:event_costDocRBtnActionPerformed
 
     private void payeeDocRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payeeDocRBtnActionPerformed
-        filterVisibility(payeeDocRBtn);
+        filterVisibelity(payeeDocRBtn);
     }//GEN-LAST:event_payeeDocRBtnActionPerformed
 
     private void TimeDocRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeDocRBtnActionPerformed
-        filterVisibility(TimeDocRBtn);
+        filterVisibelity(TimeDocRBtn);
     }//GEN-LAST:event_TimeDocRBtnActionPerformed
 
     private void CostDocListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostDocListActionPerformed
@@ -1944,22 +2027,73 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void ShowDocsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowDocsbtnActionPerformed
         Landpage(docsReport);
+        String filterDateRange = DRangeDocsDay.getText();
     }//GEN-LAST:event_ShowDocsbtnActionPerformed
-    public void filterVisibility(JRadioButton Rbtn) {
 
-        payeeLabel.setVisible(payeeDocRBtn.isSelected());
-        costLabel.setVisible(costDocRBtn.isSelected());
-        peopleDocList.setVisible(payeeDocRBtn.isSelected());
-        CostDocList.setVisible(costDocRBtn.isSelected());
-        dailyِDoc.setVisible(TimeDocRBtn.isSelected());
-        weeklyDoc.setVisible(TimeDocRBtn.isSelected());
-        MonthlyDoc.setVisible(TimeDocRBtn.isSelected());
-        Monthscheck.setVisible(TimeDocRBtn.isSelected() && MonthlyDoc.isSelected());
+    private void costCheckRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costCheckRBtnActionPerformed
+        filterVisibelity(costCheckRBtn);
+    }//GEN-LAST:event_costCheckRBtnActionPerformed
+
+    private void payeeCheckRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payeeCheckRBtnActionPerformed
+        filterVisibelity(payeeCheckRBtn);
+    }//GEN-LAST:event_payeeCheckRBtnActionPerformed
+
+    private void TimeCheckRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeCheckRBtnActionPerformed
+        filterVisibelity(TimeCheckRBtn);
+    }//GEN-LAST:event_TimeCheckRBtnActionPerformed
+
+    private void CostCheckListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostCheckListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CostCheckListActionPerformed
+
+    private void peopleCheckListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peopleCheckListActionPerformed
+
+    }//GEN-LAST:event_peopleCheckListActionPerformed
+
+    private void MonthscheckListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthscheckListActionPerformed
+        String chosenMonthCh = MonthscheckList.getSelectedItem().toString();
+    }//GEN-LAST:event_MonthscheckListActionPerformed
+
+    private void MonthlyCheckRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthlyCheckRBtnActionPerformed
+        MonthlyCheckRBtn.isSelected();
+    }//GEN-LAST:event_MonthlyCheckRBtnActionPerformed
+
+    private void weeklyCheckRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weeklyCheckRBtnActionPerformed
+        weeklyCheckRBtn.isSelected();
+    }//GEN-LAST:event_weeklyCheckRBtnActionPerformed
+
+    private void dailyCheckRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dailyCheckRBtnActionPerformed
+        dailyCheckRBtn.isSelected();
+    }//GEN-LAST:event_dailyCheckRBtnActionPerformed
+
+    private void backshowDoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backshowDoc1ActionPerformed
+        Landpage(dashboard);
+    }//GEN-LAST:event_backshowDoc1ActionPerformed
+
+    private void ShowChecksbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowChecksbtnActionPerformed
+        Landpage(checksReport);
+    }//GEN-LAST:event_ShowChecksbtnActionPerformed
+    public void filterVisibelity(JRadioButton Rbtn) {
+
+        payeeLabel.setEnabled(payeeDocRBtn.isSelected());
+        costLabel.setEnabled(costDocRBtn.isSelected());
+        peopleDocList.setEnabled(payeeDocRBtn.isSelected());
+        CostDocList.setEnabled(costDocRBtn.isSelected());
+        dailyِDoc.setEnabled(TimeDocRBtn.isSelected());
+        weeklyDoc.setEnabled(TimeDocRBtn.isSelected());
+        MonthlyDoc.setEnabled(TimeDocRBtn.isSelected());
+        Monthscheck.setEnabled(TimeDocRBtn.isSelected() && MonthlyDoc.isSelected());
+        costLabelCheck.setEnabled(costCheckRBtn.isSelected());
+        payeeLabelCheck.setEnabled(payeeCheckRBtn.isSelected());
+        Monthscheck.setEnabled(MonthlyCheckRBtn.isSelected() && TimeCheckRBtn.isSelected());
+        weeklyCheckRBtn.setEnabled(TimeCheckRBtn.isSelected());
+        dailyCheckRBtn.setEnabled(TimeCheckRBtn.isSelected());
+        MonthlyCheckRBtn.setEnabled(TimeCheckRBtn.isSelected());
 
     }
 
     public void Landpage(JPanel panel) {
-        Monthscheckshow.setVisible(false);
+//        Monthscheckshow.setVisible(false);
         Monthscheck.setVisible(false);
         LoginPanel.setVisible(panel == LoginPanel);
         dashboard.setVisible(panel == dashboard);
@@ -2013,14 +2147,23 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddressField;
+    private javax.swing.JComboBox<String> CostCheckList;
     private javax.swing.JComboBox<String> CostDocList;
+    private javax.swing.JTextField DRangeChecksDay;
+    private javax.swing.JTextField DRangeChecksMonth;
+    private javax.swing.JTextField DRangeChecksYear;
+    private javax.swing.JTextField DRangeDocsDay;
+    private javax.swing.JTextField DRangeDocsMonth;
+    private javax.swing.JTextField DRangeDocsYear;
     private javax.swing.JPanel LoginError;
     private javax.swing.JPanel LoginPanel;
+    private javax.swing.JRadioButton MonthlyCheckRBtn;
     private javax.swing.JRadioButton MonthlyDoc;
     private javax.swing.JComboBox<String> Monthscheck;
-    private javax.swing.JComboBox<String> Monthscheckshow;
-    private javax.swing.JButton ShowCheckDocs2;
+    private javax.swing.JComboBox<String> MonthscheckList;
+    private javax.swing.JButton ShowChecksbtn;
     private javax.swing.JButton ShowDocsbtn;
+    private javax.swing.JRadioButton TimeCheckRBtn;
     private javax.swing.JRadioButton TimeDocRBtn;
     private javax.swing.JPanel addCategoryPanel;
     private javax.swing.JButton addCheckBack;
@@ -2048,18 +2191,17 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JTextField categoryFieldName;
     private javax.swing.JTextField categoryFieldPhone;
     private javax.swing.JTextField categoryFieldَAddress;
-    private javax.swing.JTextField checkDayField;
-    private javax.swing.JTextField checkMonthField;
-    private javax.swing.JTextField checkYearField;
     private javax.swing.JPanel checksReport;
     private javax.swing.JTable checksTable;
     private javax.swing.JRadioButton clientBtn;
     private javax.swing.JButton confirmCategory;
     private javax.swing.JTextField cost;
+    private javax.swing.JRadioButton costCheckRBtn;
     private javax.swing.JRadioButton costDocRBtn;
     private javax.swing.JLabel costLabel;
+    private javax.swing.JLabel costLabelCheck;
     private javax.swing.JRadioButton creditorBtn;
-    private javax.swing.JRadioButton dailyCheck;
+    private javax.swing.JRadioButton dailyCheckRBtn;
     private javax.swing.JRadioButton dailyِDoc;
     private javax.swing.JPanel dashboard;
     private javax.swing.JButton dashboardBtnadd;
@@ -2095,10 +2237,10 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -2107,6 +2249,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
@@ -2116,7 +2259,6 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -2124,7 +2266,6 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel loginPanel;
-    private javax.swing.JRadioButton monthlyCheck;
     private javax.swing.JRadioButton partnerBtn;
     private javax.swing.JButton passWordRecovery;
     protected javax.swing.JTextField passwordField;
@@ -2133,9 +2274,11 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JTextField payee2Cost;
     private javax.swing.JTextField payee3;
     private javax.swing.JTextField payee3Cost;
-    private javax.swing.JTextField payee4;
+    private javax.swing.JRadioButton payeeCheckRBtn;
     private javax.swing.JRadioButton payeeDocRBtn;
     private javax.swing.JLabel payeeLabel;
+    private javax.swing.JLabel payeeLabelCheck;
+    private javax.swing.JComboBox<String> peopleCheckList;
     private javax.swing.JComboBox<String> peopleDocList;
     private javax.swing.JTextField phoneField;
     private javax.swing.JButton registerChangeCheck;
@@ -2148,7 +2291,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JPanel tablePanel;
     private javax.swing.JButton tableback;
     private javax.swing.ButtonGroup timeFilter;
-    private javax.swing.JRadioButton weeklyCheck;
+    private javax.swing.JRadioButton weeklyCheckRBtn;
     private javax.swing.JRadioButton weeklyDoc;
     // End of variables declaration//GEN-END:variables
 

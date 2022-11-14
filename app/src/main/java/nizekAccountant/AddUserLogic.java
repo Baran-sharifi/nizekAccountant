@@ -17,15 +17,16 @@ public class AddUserLogic {
         
     }
  
-    
-   public String[] passUserTodataBase(String id ,String name,String phone,String address,String type){
+//=========pass user to data base===================================    
+   //public User passUserTodataBase(String id ,String name,String phone,String address,String type){
    //User user= new(id,name,phone,address,type);
+   //here initialize a new User with the given params and passes it to writefile;
    
    
   // }
-  return null;
-   }
-    
+ // return null;
+//   }
+ //================================================================   
     
 //    public boolean canEnterUser(String emailfield, String password) { //name and password are getting from input field.folan.getText()
 //        boolean areFieldsCorrect=false;

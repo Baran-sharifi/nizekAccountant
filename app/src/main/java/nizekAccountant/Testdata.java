@@ -7,6 +7,7 @@ package nizekAccountant;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ComboBoxModel;
+import javax.swing.JLabel;
 import javax.swing.event.ListDataListener;
 
 /**
@@ -21,6 +22,13 @@ public class Testdata {//implements ComboBoxModel<String> {
       PeopleDoc.add("second");
    }
 
+//    JLabel lblNewLabel = new JLabel("");
+//    lblNewLabel.setIcon(new ImageIcon("C:\\Us"));
+//   // lblNewLabel.setBounds(0, 0, 515, 367);
+//   // frame1.add(lblNewLabel);
+//   
+   
+   
 //    @Override
 //    public void setSelectedItem(Object anItem) {
 //        // Nothing
