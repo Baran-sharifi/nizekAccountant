@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 //import java.awt.Graphics;
 import javax.swing.JButton;
+import javax.swing.JPanel;
 //import javax.swing.JLabel;
 import javax.swing.JToggleButton;
 //import javax.swing.JFrame;
@@ -48,7 +49,19 @@ public class GraphicsManager {
         btn.setPreferredSize(btnConfirmDimension);
 
     }
-;
+ void btnLableColor(){
+ 
+ 
+ 
+ }
+ 
+ void panelChangeColor(JPanel panel){
+        panel.setBackground(color.white);
+ }
+ 
+ 
+ 
+ 
 
 //void labelColorchange(JLabel label){}
 //label.setForeground(r,g,b);

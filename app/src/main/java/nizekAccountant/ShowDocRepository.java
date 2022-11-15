@@ -117,7 +117,16 @@ public class ShowDocRepository implements TableModel {
     
     }
        
-        @Override
+    
+    
+    
+    //edit table
+        
+    
+    
+    
+    
+    @Override
         public void setValueAt
         (Object aValue, int rowIndex, int columnIndex
         
