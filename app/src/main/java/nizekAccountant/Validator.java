@@ -37,11 +37,10 @@ public class Validator {
         return matcher.find();
     }
 
-    static boolean digitBasedIsValid(String Id) {
-        String regex = "^\\d{1}";
+    static boolean costIsValid(String Id) {
+        String regex = "^[1-9]+[0-9]{1,}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(Id);
-       
         return matcher.find();
     }
 

@@ -30,7 +30,7 @@ public class AddCategoryLogic {
     }
  // ====================================================================
     boolean PossibleToAdd(String name,String id, String phone,String address,String  email){
-    return(Validator.phoneIsValid(phone)&&Validator.emailIsValid(email)&&Validator.digitBasedIsValid(id)&&Validator.nameIsValid(name));
+    return(Validator.phoneIsValid(phone)&&Validator.emailIsValid(email)&&Validator.costIsValid(id)&&Validator.nameIsValid(name));
     
     }
     

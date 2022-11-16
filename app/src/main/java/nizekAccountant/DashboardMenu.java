@@ -44,6 +44,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         // filterVisibility();
         addCheckLogic = new AddCheckLogic();
         addDocLogic = new AddDocLogic();
+
         addUserLogic = new AddUserLogic();
         showCheckLogic = new ShowCheckRepository();
         changeStateCheckLogic = new ChangeStateCheckLogic();
@@ -2136,11 +2137,18 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmCategoryActionPerformed
 
     private void registerCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCheckActionPerformed
-        AddCheckLogic addCheck = new AddCheckLogic();
         String payeeDoc = payeeCheckAdd.getText();
         String discriptionDoc = discriptionTextAdd.getText();
         String costDoc = payeeCostAdd.getText();
-        addCheck.passCheckToDatabase(payeeDoc, discriptionDoc, costDoc);
+        if (addCheckLogic.canSubmitCheck(payeeDoc, costDoc, discriptionDoc)) {
+            addCheckLogic.passCheckToDatabase(payeeDoc, costDoc, discriptionDoc);
+        } else {
+            JOptionPane.showMessageDialog(addDocPanel, "فیلد  های سند را صحیح وارد کنید",
+                    "اطلاعات نامعتبر", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+
     }//GEN-LAST:event_registerCheckActionPerformed
 
     private void registerChangeCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerChangeCheckActionPerformed

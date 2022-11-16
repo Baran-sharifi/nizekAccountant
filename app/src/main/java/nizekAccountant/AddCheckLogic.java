@@ -20,6 +20,16 @@ public class AddCheckLogic {
     return null;
     }
     
+    public boolean canSubmitCheck(String payeeName, String cost, String discription) { //name and password are getting from input field.folan.getText()
+    //    boolean areFieldsCorrect = false;
+
+//==========regex check================
+        //  boolean emailHasValidate = (Validator.emailIsValid(emailfield));
+        boolean nameValid = Validator.nameIsValid(payeeName);
+        boolean numberValid = Validator.costIsValid(cost);
+        return (numberValid && nameValid);
+
+    }
     
     
     

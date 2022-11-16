@@ -40,7 +40,7 @@ public class AddDocLogic {
 //==========regex check================
         //  boolean emailHasValidate = (Validator.emailIsValid(emailfield));
         boolean nameValid = Validator.nameIsValid(payeeName);
-        boolean numberValid = Validator.digitBasedIsValid(cost);
+        boolean numberValid = Validator.costIsValid(cost);
         return (numberValid && nameValid);
 
     }
