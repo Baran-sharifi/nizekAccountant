@@ -2143,7 +2143,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         if (addCheckLogic.canSubmitCheck(payeeDoc, costDoc, discriptionDoc)) {
             addCheckLogic.passCheckToDatabase(payeeDoc, costDoc, discriptionDoc);
         } else {
-            JOptionPane.showMessageDialog(addDocPanel, "فیلد  های سند را صحیح وارد کنید",
+            JOptionPane.showMessageDialog(addDocPanel, "فیلد های چک را صحیح وارد کنید",
                     "اطلاعات نامعتبر", JOptionPane.ERROR_MESSAGE);
 
         }
@@ -2181,7 +2181,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_submitDocActionPerformed
 
     private void btnconfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconfirmActionPerformed
-        AddUserLogic addUser = new AddUserLogic();
+
         String type = "";
         String emailfieldUser = emailField.getText();
         String addressfieldUser = AddressField.getText();
@@ -2195,8 +2195,14 @@ public class DashboardMenu extends javax.swing.JFrame {
         } else if (clientBtn.isSelected()) {
             type = "client";
         }
+        if (addUserLogic.canSubmitPeople(userName,phone, userId, addressfieldUser, emailfieldUser)) {
+            //     addUserLogic.passUserTodataBase(userId, userName, phone, addressfieldUser, type);
+        } else {
+            JOptionPane.showMessageDialog(addDocPanel, "فیلد  های سند را صحیح وارد کنید",
+                    "اطلاعات نامعتبر", JOptionPane.ERROR_MESSAGE);
+        }
+
 //  refactor id to nationalId
-        //     addUser.passUserTodataBase(userId, userName, phone, addressfieldUser, type);
         peopleDocList.addItem(userName);
 
     }//GEN-LAST:event_btnconfirmActionPerformed

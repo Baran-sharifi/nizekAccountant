@@ -16,6 +16,18 @@ public class AddUserLogic {
         
         
     }
+    
+    
+    
+    
+boolean existInDataBase(String nationalId){
+
+//check already exists in data base
+
+return false;
+}    
+    
+    
  
 //=========pass user to data base===================================    
    //public User passUserTodataBase(String id ,String name,String phone,String address,String type){
@@ -41,7 +53,34 @@ public class AddUserLogic {
 //        }
 //        System.out.println(Validator.emailIsValid(emailfield) && areFieldsCorrect);
 //         return (Validator.emailIsValid(emailfield) && areFieldsCorrect);
+    
+public boolean canSubmitPeople(String payeeName, String phone, String nationalId,String address,String email) { //name and password are getting from input field.folan.getText()
+//
+//==========regex check================
+        //  boolean emailHasValidate = (Validator.emailIsValid(emailfield));
+        boolean emailValid=Validator.emailIsValid(email);
+        boolean nameValid = Validator.nameIsValid(payeeName);
+        boolean phoneValid = Validator.phoneIsValid(phone);
+        boolean addressValid=Validator.addressIsValid(address);
+        boolean idValid=Validator.IdIsValid(nationalId);
+        return((!existInDataBase( nationalId))&&nameValid&&phoneValid&&addressValid&&idValid&&emailValid);
+
+
+
+
+        
+        
     }
+
+
+
+
+
+
+
+
+
+}
     
     
     
