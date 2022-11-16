@@ -33,39 +33,39 @@ public class Validator {
         String regex = "^[a-zA-Z]{1,}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(nameInput);
-        System.out.println(matcher.matches());
-        return matcher.matches();
+       
+        return matcher.find();
     }
 
-    static boolean idIsValid(String Id) {
+    static boolean digitBasedIsValid(String Id) {
         String regex = "^\\d{1}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(Id);
-        System.out.println(matcher.matches());
-        return matcher.matches();
+       
+        return matcher.find();
     }
 
     static boolean phoneIsValid(String phone) {
         String regex = "^\\d{8}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(phone);
-        System.out.println(matcher.matches());
-        return matcher.matches();
+       
+        return matcher.find();
     }
 
     static boolean addressIsValid(String address) {
         String regex = "[\\w\\d]{1,}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(address);
-        System.out.println(matcher.matches());
-        return matcher.matches();
+      
+        return matcher.find();
     }
 
     static boolean passwordIsvalid(String password) {
         String regex = "\\w";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
-        return (matcher.matches());
+        return (matcher.find());
     }
     
     
@@ -73,8 +73,8 @@ public class Validator {
         String regex = "^[a-zA-Zhالف-یا]{1}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(nameInput);
-        System.out.println(matcher.matches());
-        return matcher.matches();
+      
+        return matcher.find();
     }
 
 
@@ -83,7 +83,7 @@ static boolean DateisValid(String date){
  String regex = "\\d{2}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(date);
-        return (!matcher.matches());
+        return (!matcher.find());
 
 }
 

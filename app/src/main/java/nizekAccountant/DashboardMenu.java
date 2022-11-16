@@ -3,6 +3,7 @@ package nizekAccountant;
 //import testProject.ButtonRounder;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -12,7 +13,9 @@ import javax.swing.JRadioButton;
  */
 public class DashboardMenu extends javax.swing.JFrame {
 
+    boolean submitDocs = false;
     Dimension dimension = new Dimension(72, 26);
+    Dimension Docs = new Dimension(100, 100);
     private LoginLogic loginLogic;
     private AddCheckLogic addCheckLogic;
     private AddDocLogic addDocLogic;
@@ -77,6 +80,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         btnmanager.btnChangeColor(backToLogin);
         btnmanager.btnChangeColor(tarazBtn);
         btnmanager.btnChangeColor(ShowChecksbtn);
+        btnmanager.btnChangeColor(dashboardBtnshowCheck1);
 //=============changing lables===========================
         //============changing size  the registered buttons ============================
         btnmanager.btnSize(submitDoc);
@@ -86,7 +90,6 @@ public class DashboardMenu extends javax.swing.JFrame {
         btnmanager.btnSize(confirmCategory);
     }
 //==================================================================
-   
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -114,15 +117,17 @@ public class DashboardMenu extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         addcheckPanel = new javax.swing.JPanel();
         registerCheck = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        discriptionText = new javax.swing.JTextArea();
+        addCheckBack = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        addCheckScroll = new javax.swing.JScrollPane();
+        addingCheckPanel = new javax.swing.JPanel();
+        discriptionCheck = new javax.swing.JScrollPane();
+        discriptionTextAdd = new javax.swing.JTextArea();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        payee2Cost = new javax.swing.JTextField();
-        payee2 = new javax.swing.JTextField();
-        addCheckBack = new javax.swing.JButton();
-        jLabel29 = new javax.swing.JLabel();
+        payeeCostAdd = new javax.swing.JTextField();
+        payeeCheckAdd = new javax.swing.JTextField();
         stateChangePanel = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         payee3 = new javax.swing.JTextField();
@@ -158,18 +163,23 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         addDocPanel = new javax.swing.JPanel();
-        payee = new javax.swing.JTextField();
-        submitDoc = new javax.swing.JButton();
-        cost = new javax.swing.JTextField();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        addingDocPanel = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        discriptionDocAdd = new javax.swing.JTextField();
+        payeeDocAdd = new javax.swing.JTextField();
+        costDocAdd = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         creditorBtn = new javax.swing.JRadioButton();
         debtorBtn = new javax.swing.JRadioButton();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        discription = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
+        submitDoc = new javax.swing.JButton();
         addDocback = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
+        groupDocSubmit = new javax.swing.JButton();
+        jLabel38 = new javax.swing.JLabel();
         addPeoplePanel = new javax.swing.JPanel();
         addName = new javax.swing.JTextField();
         addId = new javax.swing.JTextField();
@@ -217,6 +227,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         dashboardlabel = new javax.swing.JLabel();
         tarazBtn = new javax.swing.JButton();
         backToLogin = new javax.swing.JButton();
+        dashboardBtnshowCheck1 = new javax.swing.JButton();
         showCheckpanel = new javax.swing.JPanel();
         payeeLabelCheck = new javax.swing.JLabel();
         ShowChecksbtn = new javax.swing.JButton();
@@ -430,31 +441,6 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
-        discriptionText.setColumns(20);
-        discriptionText.setRows(5);
-        jScrollPane1.setViewportView(discriptionText);
-
-        jLabel17.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        jLabel17.setText("طرف حساب");
-
-        jLabel18.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        jLabel18.setText("مبلغ");
-
-        jLabel19.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        jLabel19.setText("توضیحات");
-
-        payee2Cost.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                payee2CostActionPerformed(evt);
-            }
-        });
-
-        payee2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                payee2ActionPerformed(evt);
-            }
-        });
-
         addCheckBack.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         addCheckBack.setText("بازگشت به داشبورد اصلی");
         addCheckBack.addActionListener(new java.awt.event.ActionListener() {
@@ -468,61 +454,112 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("افزودن چک");
 
+        discriptionTextAdd.setColumns(20);
+        discriptionTextAdd.setRows(5);
+        discriptionCheck.setViewportView(discriptionTextAdd);
+
+        jLabel17.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel17.setText("طرف حساب");
+
+        jLabel18.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel18.setText("مبلغ");
+
+        jLabel19.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel19.setText("توضیحات");
+
+        payeeCostAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payeeCostAddActionPerformed(evt);
+            }
+        });
+
+        payeeCheckAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payeeCheckAddActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout addingCheckPanelLayout = new javax.swing.GroupLayout(addingCheckPanel);
+        addingCheckPanel.setLayout(addingCheckPanelLayout);
+        addingCheckPanelLayout.setHorizontalGroup(
+            addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingCheckPanelLayout.createSequentialGroup()
+                .addContainerGap(118, Short.MAX_VALUE)
+                .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(addingCheckPanelLayout.createSequentialGroup()
+                        .addComponent(payeeCheckAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel17))
+                    .addGroup(addingCheckPanelLayout.createSequentialGroup()
+                        .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(discriptionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(payeeCostAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingCheckPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(8, 8, 8)))))
+                .addGap(19, 19, 19))
+        );
+        addingCheckPanelLayout.setVerticalGroup(
+            addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addingCheckPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addingCheckPanelLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(payeeCheckAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingCheckPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(18, 18, 18)))
+                .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(payeeCostAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(addingCheckPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addGap(58, 58, 58))
+                    .addComponent(discriptionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+
+        addCheckScroll.setViewportView(addingCheckPanel);
+
         javax.swing.GroupLayout addcheckPanelLayout = new javax.swing.GroupLayout(addcheckPanel);
         addcheckPanel.setLayout(addcheckPanelLayout);
         addcheckPanelLayout.setHorizontalGroup(
             addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addcheckPanelLayout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addcheckPanelLayout.createSequentialGroup()
-                        .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(addcheckPanelLayout.createSequentialGroup()
-                                .addComponent(payee2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel17))
-                            .addGroup(addcheckPanelLayout.createSequentialGroup()
-                                .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(payee2Cost, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(addcheckPanelLayout.createSequentialGroup()
-                                        .addComponent(addCheckBack)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(registerCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(32, 32, 32)
-                                .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel19)
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addGap(34, 34, 34))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addcheckPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel29)
-                        .addContainerGap())))
+                    .addGroup(addcheckPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addcheckPanelLayout.createSequentialGroup()
+                                .addComponent(addCheckBack)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(registerCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(125, 125, 125))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addcheckPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addContainerGap())))
+                    .addComponent(addCheckScroll, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
         addcheckPanelLayout.setVerticalGroup(
             addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addcheckPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel29)
-                .addGap(44, 44, 44)
-                .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(payee2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(payee2Cost, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addcheckPanelLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(jLabel19))
-                    .addGroup(addcheckPanelLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(39, 39, 39)
+                .addComponent(addCheckScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addCheckBack, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registerCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         jLabel25.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
@@ -851,24 +888,29 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGap(52, 52, 52))
         );
 
-        payee.addActionListener(new java.awt.event.ActionListener() {
+        addDocPanel.setBackground(new java.awt.Color(204, 204, 255));
+        addDocPanel.setForeground(new java.awt.Color(204, 204, 204));
+
+        jScrollPane5.setBackground(new java.awt.Color(204, 255, 153));
+
+        addingDocPanel.setBackground(new java.awt.Color(204, 153, 255));
+        addingDocPanel.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel15.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel15.setText("مبلغ");
+
+        jLabel16.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel16.setText("توضیحات");
+
+        payeeDocAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                payeeActionPerformed(evt);
+                payeeDocAddActionPerformed(evt);
             }
         });
 
-        submitDoc.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        submitDoc.setText("ثبت");
-        submitDoc.setPreferredSize(dimension);
-        submitDoc.addActionListener(new java.awt.event.ActionListener() {
+        costDocAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitDocActionPerformed(evt);
-            }
-        });
-
-        cost.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                costActionPerformed(evt);
+                costDocAddActionPerformed(evt);
             }
         });
 
@@ -886,11 +928,76 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         jLabel14.setText("طرف حساب");
 
-        jLabel15.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        jLabel15.setText("مبلغ");
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel39.setText("______________________________________________________________________________________________________________________________");
 
-        jLabel16.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        jLabel16.setText("توضیحات");
+        javax.swing.GroupLayout addingDocPanelLayout = new javax.swing.GroupLayout(addingDocPanel);
+        addingDocPanel.setLayout(addingDocPanelLayout);
+        addingDocPanelLayout.setHorizontalGroup(
+            addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addingDocPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingDocPanelLayout.createSequentialGroup()
+                        .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(creditorBtn)
+                            .addComponent(debtorBtn))
+                        .addGap(65, 65, 65)
+                        .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(payeeDocAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                            .addComponent(costDocAdd)))
+                    .addComponent(discriptionDocAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel14)
+                        .addComponent(jLabel15)
+                        .addComponent(jLabel16))
+                    .addComponent(jLabel13))
+                .addGap(21, 21, 21))
+            .addGroup(addingDocPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        addingDocPanelLayout.setVerticalGroup(
+            addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addingDocPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(payeeDocAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(creditorBtn))
+                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addingDocPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(costDocAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(addingDocPanelLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(debtorBtn)))
+                .addGap(18, 18, 18)
+                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(discriptionDocAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel39)
+                .addContainerGap(408, Short.MAX_VALUE))
+        );
+
+        jScrollPane5.setViewportView(addingDocPanel);
+
+        submitDoc.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        submitDoc.setText("ثبت");
+        submitDoc.setPreferredSize(dimension);
+        submitDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitDocActionPerformed(evt);
+            }
+        });
 
         addDocback.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         addDocback.setText("بازگشت به داشبورد اصلی");
@@ -905,74 +1012,54 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("افزودن سند");
 
+        groupDocSubmit.setText("+ ");
+        groupDocSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupDocSubmitActionPerformed(evt);
+            }
+        });
+
+        jLabel38.setText("numberOfdocs");
+
         javax.swing.GroupLayout addDocPanelLayout = new javax.swing.GroupLayout(addDocPanel);
         addDocPanel.setLayout(addDocPanelLayout);
         addDocPanelLayout.setHorizontalGroup(
             addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addDocPanelLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
                 .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addDocPanelLayout.createSequentialGroup()
-                        .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(addDocPanelLayout.createSequentialGroup()
-                                .addComponent(debtorBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cost, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                                    .addComponent(payee, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(addDocPanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(discription, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16))
-                        .addGap(38, 38, 38))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel32))
                     .addGroup(addDocPanelLayout.createSequentialGroup()
-                        .addComponent(creditorBtn)
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel13)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(addDocback)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(submitDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(157, 157, 157))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel32)
+                        .addGap(54, 54, 54)
+                        .addComponent(addDocback)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(submitDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel38)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
+                .addGap(0, 35, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
         addDocPanelLayout.setVerticalGroup(
             addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addDocPanelLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addComponent(jLabel32)
                 .addGap(18, 18, 18)
-                .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addDocback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(addDocPanelLayout.createSequentialGroup()
-                        .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(creditorBtn))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(payee, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel14))
-                            .addComponent(debtorBtn))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15))
-                        .addGap(18, 18, 18)
-                        .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(discription, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(submitDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(134, Short.MAX_VALUE))
+                    .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel38))
+                .addGap(32, 32, 32))
         );
 
         addPeoplePanel.setBackground(new java.awt.Color(204, 204, 204));
@@ -1233,7 +1320,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addComponent(addback)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confirmCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 112, Short.MAX_VALUE))
+                .addGap(0, 141, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addCategoryPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1301,7 +1388,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(categoryFieldَAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(confirmCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1373,6 +1460,16 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        dashboardBtnshowCheck1.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        dashboardBtnshowCheck1.setText("تغییر وضعیت چک");
+        dashboardBtnshowCheck1.setMaximumSize(new java.awt.Dimension(140, 109));
+        dashboardBtnshowCheck1.setPreferredSize(new java.awt.Dimension(103, 26));
+        dashboardBtnshowCheck1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashboardBtnshowCheck1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout dashboardLayout = new javax.swing.GroupLayout(dashboard);
         dashboard.setLayout(dashboardLayout);
         dashboardLayout.setHorizontalGroup(
@@ -1393,9 +1490,14 @@ public class DashboardMenu extends javax.swing.JFrame {
                             .addComponent(dashboardBtnshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dashboardBtnshowCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tarazBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                        .addComponent(dashboardlabel)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dashboardLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(dashboardlabel))
+                            .addGroup(dashboardLayout.createSequentialGroup()
+                                .addComponent(dashboardBtnshowCheck1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         dashboardLayout.setVerticalGroup(
             dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1410,7 +1512,9 @@ public class DashboardMenu extends javax.swing.JFrame {
                                 .addContainerGap(23, Short.MAX_VALUE)
                                 .addComponent(tarazBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dashboardBtnshowCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dashboardBtnshowCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dashboardBtnshowCheck1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dashboardBtnshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(dashboardLayout.createSequentialGroup()
@@ -1421,8 +1525,8 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dashboardBtnaddDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backToLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addComponent(backToLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         payeeLabelCheck.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
@@ -1549,7 +1653,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(showCheckpanelLayout.createSequentialGroup()
                                 .addComponent(MonthlyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                                 .addComponent(weeklyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(dailyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1583,14 +1687,11 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGap(40, 40, 40))
             .addGroup(showCheckpanelLayout.createSequentialGroup()
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backshowDoc1))
                     .addGroup(showCheckpanelLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(55, 55, 55)
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel35))
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel28))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, showCheckpanelLayout.createSequentialGroup()
@@ -1605,14 +1706,18 @@ public class DashboardMenu extends javax.swing.JFrame {
                                 .addComponent(DRangeChecksMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(DRangeChecksDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(9, 9, 9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backshowDoc1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(showCheckpanelLayout.createSequentialGroup()
                         .addComponent(ShowChecksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(157, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         showCheckpanelLayout.setVerticalGroup(
             showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1914,13 +2019,13 @@ public class DashboardMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailFieldActionPerformed
 
-    private void costActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costActionPerformed
+    private void costDocAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costDocAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_costActionPerformed
+    }//GEN-LAST:event_costDocAddActionPerformed
 
-    private void payeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payeeActionPerformed
+    private void payeeDocAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payeeDocAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_payeeActionPerformed
+    }//GEN-LAST:event_payeeDocAddActionPerformed
 
     private void payee3CostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payee3CostActionPerformed
         // TODO add your handling code here:
@@ -1930,13 +2035,13 @@ public class DashboardMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_payee3ActionPerformed
 
-    private void payee2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payee2ActionPerformed
+    private void payeeCheckAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payeeCheckAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_payee2ActionPerformed
+    }//GEN-LAST:event_payeeCheckAddActionPerformed
 
-    private void payee2CostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payee2CostActionPerformed
+    private void payeeCostAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payeeCostAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_payee2CostActionPerformed
+    }//GEN-LAST:event_payeeCostAddActionPerformed
 
     private void emailfieldLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailfieldLoginActionPerformed
         // TODO add your handling code here:
@@ -2032,9 +2137,9 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void registerCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCheckActionPerformed
         AddCheckLogic addCheck = new AddCheckLogic();
-        String payeeDoc = payee2.getText();
-        String discriptionDoc = discriptionText.getText();
-        String costDoc = payee2Cost.getText();
+        String payeeDoc = payeeCheckAdd.getText();
+        String discriptionDoc = discriptionTextAdd.getText();
+        String costDoc = payeeCostAdd.getText();
         addCheck.passCheckToDatabase(payeeDoc, discriptionDoc, costDoc);
     }//GEN-LAST:event_registerCheckActionPerformed
 
@@ -2051,11 +2156,18 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_backshowCheckActionPerformed
 
     private void submitDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitDocActionPerformed
-        AddDocLogic addDoc = new AddDocLogic();
-        String payeeDoc = payee.getText();
-        String discriptionDoc = discription.getText();
-        String costDoc = cost.getText();
-        addDoc.passDocToDatabase(payeeDoc, discriptionDoc, costDoc);
+        String addPayeeDoc = payeeDocAdd.getText();
+        String addCostDoc = costDocAdd.getText();
+        String addDiscriptionDoc = discriptionDocAdd.getText();
+        if (addDocLogic.canSubmitDoc(addPayeeDoc, addCostDoc, addDiscriptionDoc)) {
+            addDocLogic.passDocToDatabase(addPayeeDoc, addCostDoc, addDiscriptionDoc);
+
+        } else {
+            JOptionPane.showMessageDialog(addDocPanel, "فیلد  های سند را صحیح وارد کنید",
+                    "اطلاعات نامعتبر", JOptionPane.ERROR_MESSAGE);
+
+        }
+        //   addDocLogic.groupedSubmit(submitDoc);
 
 
     }//GEN-LAST:event_submitDocActionPerformed
@@ -2190,14 +2302,22 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_tarazBtnActionPerformed
 
     private void backToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToLoginActionPerformed
-       landPage(LoginPanel);
+        landPage(LoginPanel);
     }//GEN-LAST:event_backToLoginActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-       
+
 //GraphicsManager.darkmode();
 
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void groupDocSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupDocSubmitActionPerformed
+        addDocLogic.groupedSubmit(submitDoc);
+    }//GEN-LAST:event_groupDocSubmitActionPerformed
+
+    private void dashboardBtnshowCheck1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnshowCheck1ActionPerformed
+        landPage(stateChangePanel);
+    }//GEN-LAST:event_dashboardBtnshowCheck1ActionPerformed
     public void filterVisibelity(JRadioButton Rbtn) {
         costCheckList.setEnabled(costCheckRBtn.isSelected());
         peopleCheckList.setEnabled(payeeCheckRBtn.isSelected());
@@ -2219,7 +2339,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         monthsDocList.setEnabled(MonthlyDoc.isSelected());
         // monthsDocList.setEnabled(MonthlyDoc.isSelected() && TimeCheckRBtn.isSelected());
         //  monthscheckList.setEnabled(TimeCheckRBtn.isSelected());
-      //==============conflict of monthComboBox enablity ========================
+        //==============conflict of monthComboBox enablity ========================
         if (payeeDocRBtn.isSelected() || costDocRBtn.isSelected()) {
             monthsDocList.setEnabled(false);
         }
@@ -2322,6 +2442,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JRadioButton TimeDocRBtn;
     private javax.swing.JPanel addCategoryPanel;
     private javax.swing.JButton addCheckBack;
+    private javax.swing.JScrollPane addCheckScroll;
     private javax.swing.JPanel addDocPanel;
     private javax.swing.JButton addDocback;
     private javax.swing.JTextField addId;
@@ -2332,6 +2453,8 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JButton addback;
     private javax.swing.JButton addcategory;
     private javax.swing.JPanel addcheckPanel;
+    private javax.swing.JPanel addingCheckPanel;
+    private javax.swing.JPanel addingDocPanel;
     private javax.swing.JButton backCheckState;
     private javax.swing.JButton backToLogin;
     private javax.swing.JButton backshowCheck;
@@ -2351,9 +2474,9 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JTable checksTable;
     private javax.swing.JRadioButton clientBtn;
     private javax.swing.JButton confirmCategory;
-    private javax.swing.JTextField cost;
     protected javax.swing.JComboBox<String> costCheckList;
     private javax.swing.JRadioButton costCheckRBtn;
+    private javax.swing.JTextField costDocAdd;
     private javax.swing.JRadioButton costDocRBtn;
     private javax.swing.JLabel costLabel;
     private javax.swing.JLabel costLabelCheck;
@@ -2364,11 +2487,13 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JButton dashboardBtnadd;
     private javax.swing.JButton dashboardBtnaddDoc;
     private javax.swing.JButton dashboardBtnshowCheck;
+    private javax.swing.JButton dashboardBtnshowCheck1;
     private javax.swing.JButton dashboardBtnshowDoc;
     private javax.swing.JLabel dashboardlabel;
     private javax.swing.JRadioButton debtorBtn;
-    private javax.swing.JTextField discription;
-    private javax.swing.JTextArea discriptionText;
+    private javax.swing.JScrollPane discriptionCheck;
+    private javax.swing.JTextField discriptionDocAdd;
+    private javax.swing.JTextArea discriptionTextAdd;
     private javax.swing.JPanel docsReport;
     private javax.swing.JTable docsTable;
     private javax.swing.JTextField emailField;
@@ -2376,6 +2501,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JRadioButton employeeBtn;
     private javax.swing.JButton enterBtn;
     private javax.swing.ButtonGroup filters;
+    private javax.swing.JButton groupDocSubmit;
     private javax.swing.JToggleButton isCreditorToggle;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
@@ -2410,6 +2536,8 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
@@ -2421,10 +2549,10 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JPanel loginPanel;
@@ -2433,12 +2561,12 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JRadioButton partnerBtn;
     private javax.swing.JButton passWordRecovery;
     protected javax.swing.JTextField passwordField;
-    private javax.swing.JTextField payee;
-    private javax.swing.JTextField payee2;
-    private javax.swing.JTextField payee2Cost;
     private javax.swing.JTextField payee3;
     private javax.swing.JTextField payee3Cost;
+    private javax.swing.JTextField payeeCheckAdd;
     private javax.swing.JRadioButton payeeCheckRBtn;
+    private javax.swing.JTextField payeeCostAdd;
+    private javax.swing.JTextField payeeDocAdd;
     private javax.swing.JRadioButton payeeDocRBtn;
     private javax.swing.JLabel payeeLabel;
     private javax.swing.JLabel payeeLabelCheck;

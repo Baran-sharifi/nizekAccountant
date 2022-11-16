@@ -46,7 +46,8 @@ public class GraphicsManager {
 
     void btnSize(JButton btn) {
 //for ثبت
-        btn.setPreferredSize(btnConfirmDimension);
+      //  btn.setSize(btnConfirmDimension);
+         btn.setSize(10,10);
 
     }
  void btnLableColor(){
@@ -59,7 +60,11 @@ public class GraphicsManager {
         panel.setBackground(color.white);
  }
  
+ void backButtonSize(JButton btn){   //doesnt work
+  //btn.setForeground(color);
+ btn.setSize(131, 35);
  
+ }
  
  
 
