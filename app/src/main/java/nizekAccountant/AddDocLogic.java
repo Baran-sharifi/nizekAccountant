@@ -22,17 +22,12 @@ public class AddDocLogic {
     }
 
     void groupedSubmit(JButton btn) {
-
-        if (btn.isSelected()) {
-
-            //add data to data base -> write to file
-        } else {
-            JPanel addingDocPanel = new JPanel();
-            groupedSubmit(btn);
+          JPanel addingDocPanel = new JPanel();
+     
 
         }
 
-    }
+    
 
     public boolean canSubmitDoc(String payeeName, String cost, String discription) { //name and password are getting from input field.folan.getText()
         boolean areFieldsCorrect = false;

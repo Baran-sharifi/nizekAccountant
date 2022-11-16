@@ -3,16 +3,20 @@ package nizekAccountant;
 //import testProject.ButtonRounder;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 
 /**
  *
  * @author Lenovo
  */
 public class DashboardMenu extends javax.swing.JFrame {
-
+    int addDocCounter=0;
+    int addCheckCounter=0;
     boolean submitDocs = false;
     Dimension dimension = new Dimension(72, 26);
     Dimension Docs = new Dimension(100, 100);
@@ -112,10 +116,8 @@ public class DashboardMenu extends javax.swing.JFrame {
         signInbtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        LoginError = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         passwordField = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
         addcheckPanel = new javax.swing.JPanel();
         registerCheck = new javax.swing.JButton();
         addCheckBack = new javax.swing.JButton();
@@ -129,6 +131,8 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         payeeCostAdd = new javax.swing.JTextField();
         payeeCheckAdd = new javax.swing.JTextField();
+        addCheckBack1 = new javax.swing.JButton();
+        countCheck = new javax.swing.JLabel();
         stateChangePanel = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         payee3 = new javax.swing.JTextField();
@@ -163,8 +167,12 @@ public class DashboardMenu extends javax.swing.JFrame {
         DRangeDocsMonth1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
         addDocPanel = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
+        scrollDoc = new javax.swing.JScrollPane();
         addingDocPanel = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -180,7 +188,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         addDocback = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         groupDocSubmit = new javax.swing.JButton();
-        jLabel38 = new javax.swing.JLabel();
+        countDoc = new javax.swing.JLabel();
         addPeoplePanel = new javax.swing.JPanel();
         addName = new javax.swing.JTextField();
         addId = new javax.swing.JTextField();
@@ -244,16 +252,20 @@ public class DashboardMenu extends javax.swing.JFrame {
         payeeCheckRBtn = new javax.swing.JRadioButton();
         costCheckRBtn = new javax.swing.JRadioButton();
         jLabel37 = new javax.swing.JLabel();
-        DRangeChecksDay = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         DRangeChecksYear = new javax.swing.JTextField();
         DRangeChecksMonth = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        DRangeDocsDay2 = new javax.swing.JTextField();
         DRangeDocsYear2 = new javax.swing.JTextField();
         DRangeDocsMonth2 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
+        DRangeChecksYear1 = new javax.swing.JTextField();
+        DRangeDocsMonth3 = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
         checksReport = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         checksTable = new javax.swing.JTable();
@@ -304,11 +316,14 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(153, 153, 153));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 formComponentResized(evt);
             }
         });
+
+        LoginPanel.setBackground(new java.awt.Color(153, 153, 153));
 
         emailfieldLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -316,11 +331,18 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
         jLabel20.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("نام کاربری و رمز عبور را وارد کنید");
 
         passWordRecovery.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         passWordRecovery.setText("رمز عبور را فراموش کردید؟ ");
+        passWordRecovery.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passWordRecoveryActionPerformed(evt);
+            }
+        });
 
         enterBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         enterBtn.setText("ورود");
@@ -333,90 +355,64 @@ public class DashboardMenu extends javax.swing.JFrame {
         signInbtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         signInbtn.setText("ثبت نام");
 
-        jLabel3.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ایمیل");
 
-        jLabel21.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("رمز عبور");
-
-        javax.swing.GroupLayout LoginErrorLayout = new javax.swing.GroupLayout(LoginError);
-        LoginError.setLayout(LoginErrorLayout);
-        LoginErrorLayout.setHorizontalGroup(
-            LoginErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 149, Short.MAX_VALUE)
-        );
-        LoginErrorLayout.setVerticalGroup(
-            LoginErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 51, Short.MAX_VALUE)
-        );
 
         jLabel22.setBackground(new java.awt.Color(102, 102, 255));
         jLabel22.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("پنل ورود ");
 
-        jToggleButton1.setText("barans new feature");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout LoginPanelLayout = new javax.swing.GroupLayout(LoginPanel);
         LoginPanel.setLayout(LoginPanelLayout);
         LoginPanelLayout.setHorizontalGroup(
             LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LoginPanelLayout.createSequentialGroup()
+                .addContainerGap(177, Short.MAX_VALUE)
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LoginPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(LoginError, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(LoginPanelLayout.createSequentialGroup()
-                                .addComponent(emailfieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(LoginPanelLayout.createSequentialGroup()
-                                .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(LoginPanelLayout.createSequentialGroup()
-                                        .addComponent(enterBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                    .addGroup(LoginPanelLayout.createSequentialGroup()
-                                        .addComponent(passwordField)
-                                        .addGap(12, 12, 12)))
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(LoginPanelLayout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(jLabel20)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(LoginPanelLayout.createSequentialGroup()
+                            .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(LoginPanelLayout.createSequentialGroup()
+                                    .addComponent(emailfieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(LoginPanelLayout.createSequentialGroup()
+                                    .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(LoginPanelLayout.createSequentialGroup()
+                                            .addComponent(enterBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                        .addGroup(LoginPanelLayout.createSequentialGroup()
+                                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(12, 12, 12)))
+                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(82, 82, 82))
+                        .addGroup(LoginPanelLayout.createSequentialGroup()
+                            .addGap(308, 308, 308)
+                            .addComponent(jLabel22)
+                            .addContainerGap()))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup()
-                        .addGap(0, 58, Short.MAX_VALUE)
                         .addComponent(passWordRecovery, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(signInbtn)
-                        .addGap(143, 143, 143))
+                        .addGap(171, 171, 171))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup()
-                        .addComponent(jToggleButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel22)
-                        .addContainerGap())))
+                        .addComponent(jLabel20)
+                        .addGap(188, 188, 188))))
         );
         LoginPanelLayout.setVerticalGroup(
             LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LoginPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(jToggleButton1))
-                .addGap(27, 27, 27)
-                .addComponent(LoginError, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addComponent(jLabel22)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailfieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -424,14 +420,16 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addComponent(enterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(enterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(signInbtn)
                     .addComponent(passWordRecovery))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
+
+        addcheckPanel.setBackground(new java.awt.Color(153, 153, 153));
 
         registerCheck.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         registerCheck.setText("ثبت");
@@ -455,17 +453,22 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("افزودن چک");
 
+        addingCheckPanel.setBackground(new java.awt.Color(153, 153, 153));
+
         discriptionTextAdd.setColumns(20);
         discriptionTextAdd.setRows(5);
         discriptionCheck.setViewportView(discriptionTextAdd);
 
         jLabel17.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("طرف حساب");
 
         jLabel18.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("مبلغ");
 
         jLabel19.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("توضیحات");
 
         payeeCostAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -485,7 +488,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         addingCheckPanelLayout.setHorizontalGroup(
             addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingCheckPanelLayout.createSequentialGroup()
-                .addContainerGap(118, Short.MAX_VALUE)
+                .addContainerGap(191, Short.MAX_VALUE)
                 .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(addingCheckPanelLayout.createSequentialGroup()
                         .addComponent(payeeCheckAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -529,6 +532,17 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         addCheckScroll.setViewportView(addingCheckPanel);
 
+        addCheckBack1.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        addCheckBack1.setText("+");
+        addCheckBack1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCheckBack1ActionPerformed(evt);
+            }
+        });
+
+        countCheck.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        countCheck.setText(" ");
+
         javax.swing.GroupLayout addcheckPanelLayout = new javax.swing.GroupLayout(addcheckPanel);
         addcheckPanel.setLayout(addcheckPanelLayout);
         addcheckPanelLayout.setHorizontalGroup(
@@ -538,15 +552,18 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addcheckPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addcheckPanelLayout.createSequentialGroup()
+                        .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel29)
+                            .addGroup(addcheckPanelLayout.createSequentialGroup()
                                 .addComponent(addCheckBack)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(registerCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(125, 125, 125))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addcheckPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel29)
-                                .addContainerGap())))
+                                .addComponent(registerCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addCheckBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(countCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)))
+                        .addContainerGap())
                     .addComponent(addCheckScroll, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
         addcheckPanelLayout.setVerticalGroup(
@@ -556,14 +573,19 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addCheckScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(23, 23, 23)
+                .addGroup(addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registerCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addCheckBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addCheckBack, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registerCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                    .addComponent(countCheck))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
+        stateChangePanel.setBackground(new java.awt.Color(153, 153, 153));
+
         jLabel25.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("طرف حساب");
 
         payee3.addActionListener(new java.awt.event.ActionListener() {
@@ -572,7 +594,9 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        jLabel26.setBackground(new java.awt.Color(255, 255, 255));
         jLabel26.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("مبلغ");
 
         payee3Cost.addActionListener(new java.awt.event.ActionListener() {
@@ -611,56 +635,56 @@ public class DashboardMenu extends javax.swing.JFrame {
         stateChangePanelLayout.setHorizontalGroup(
             stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(stateChangePanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(backCheckState)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(registerChangeCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stateChangePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel30)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stateChangePanelLayout.createSequentialGroup()
-                .addComponent(isCreditorToggle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(payee3Cost, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(payee3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addContainerGap(215, Short.MAX_VALUE)
                 .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stateChangePanelLayout.createSequentialGroup()
-                        .addComponent(jLabel25)
-                        .addGap(60, 60, 60))
+                        .addComponent(jLabel30)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stateChangePanelLayout.createSequentialGroup()
-                        .addComponent(jLabel26)
+                        .addComponent(backCheckState)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(registerChangeCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stateChangePanelLayout.createSequentialGroup()
+                        .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(isCreditorToggle, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(stateChangePanelLayout.createSequentialGroup()
+                                    .addComponent(payee3Cost, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel26))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, stateChangePanelLayout.createSequentialGroup()
+                                    .addComponent(payee3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(28, 28, 28)
+                                    .addComponent(jLabel25))))
                         .addGap(74, 74, 74))))
         );
         stateChangePanelLayout.setVerticalGroup(
             stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(stateChangePanelLayout.createSequentialGroup()
-                .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(stateChangePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel30)
-                        .addGap(58, 58, 58)
-                        .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(payee3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel25))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26)
-                            .addComponent(payee3Cost, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(stateChangePanelLayout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(isCreditorToggle, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 36, 36)
+                .addContainerGap()
+                .addComponent(jLabel30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registerChangeCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(payee3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(payee3Cost, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(isCreditorToggle, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addGroup(stateChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registerChangeCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backCheckState, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addGap(106, 106, 106))
         );
 
+        showDocPanel.setBackground(new java.awt.Color(153, 153, 153));
+
         payeeLabel.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        payeeLabel.setForeground(new java.awt.Color(255, 255, 255));
         payeeLabel.setText("طرف حساب");
 
         ShowDocsbtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
@@ -681,10 +705,12 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         jLabel31.setBackground(new java.awt.Color(102, 102, 255));
         jLabel31.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("نمایش سند");
 
         timeFilter.add(dailyِDoc);
         dailyِDoc.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        dailyِDoc.setForeground(new java.awt.Color(255, 255, 255));
         dailyِDoc.setText("روزانه");
         dailyِDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -694,10 +720,12 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         timeFilter.add(weeklyDoc);
         weeklyDoc.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        weeklyDoc.setForeground(new java.awt.Color(255, 255, 255));
         weeklyDoc.setText("هفتگی");
 
         timeFilter.add(MonthlyDoc);
         MonthlyDoc.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        MonthlyDoc.setForeground(new java.awt.Color(255, 255, 255));
         MonthlyDoc.setText("ماهانه");
         MonthlyDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -721,6 +749,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         costLabel.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        costLabel.setForeground(new java.awt.Color(255, 255, 255));
         costLabel.setText("قیمت");
 
         CostDocList.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
@@ -732,6 +761,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         filters.add(TimeDocRBtn);
         TimeDocRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        TimeDocRBtn.setForeground(new java.awt.Color(255, 255, 255));
         TimeDocRBtn.setText("فیلتر زمان");
         TimeDocRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -741,6 +771,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         filters.add(payeeDocRBtn);
         payeeDocRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        payeeDocRBtn.setForeground(new java.awt.Color(255, 255, 255));
         payeeDocRBtn.setText("طرف حساب");
         payeeDocRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -750,6 +781,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         filters.add(costDocRBtn);
         costDocRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        costDocRBtn.setForeground(new java.awt.Color(255, 255, 255));
         costDocRBtn.setText("فیلتر قیمت");
         costDocRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -758,16 +790,36 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         jLabel36.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
         jLabel36.setText("فیلترها");
 
-        jLabel23.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("بازه ی زمانی مورد نظر را وارد کنید");
 
         jLabel8.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("از تاریخ");
 
         jLabel27.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("تا تاریخ");
+
+        jLabel48.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel48.setText("/");
+
+        jLabel49.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel49.setText("/");
+
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel50.setText("/");
+
+        jLabel51.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel51.setText("/");
 
         javax.swing.GroupLayout showDocPanelLayout = new javax.swing.GroupLayout(showDocPanel);
         showDocPanel.setLayout(showDocPanelLayout);
@@ -780,7 +832,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(showDocPanelLayout.createSequentialGroup()
                                 .addComponent(MonthlyDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                                 .addComponent(weeklyDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(dailyِDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -808,36 +860,49 @@ public class DashboardMenu extends javax.swing.JFrame {
                             .addGroup(showDocPanelLayout.createSequentialGroup()
                                 .addComponent(CostDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(showDocPanelLayout.createSequentialGroup()
+                                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(showDocPanelLayout.createSequentialGroup()
+                                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(showDocPanelLayout.createSequentialGroup()
+                                                .addComponent(DRangeDocsYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(4, 4, 4)
+                                                .addComponent(jLabel50))
+                                            .addGroup(showDocPanelLayout.createSequentialGroup()
+                                                .addComponent(DRangeDocsYear, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(2, 2, 2)
+                                                .addComponent(jLabel51)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
+                                                .addComponent(DRangeDocsMonth1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel49))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showDocPanelLayout.createSequentialGroup()
+                                                .addComponent(DRangeDocsMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(4, 4, 4)
+                                                .addComponent(jLabel48)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(showDocPanelLayout.createSequentialGroup()
+                                                .addComponent(DRangeDocsDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(7, 7, 7)
+                                                .addComponent(jLabel8))
+                                            .addGroup(showDocPanelLayout.createSequentialGroup()
+                                                .addComponent(DRangeDocsDay1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel27))))
+                                    .addGroup(showDocPanelLayout.createSequentialGroup()
+                                        .addGap(40, 40, 40)
+                                        .addComponent(backshowDoc)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(101, 101, 101)))
                         .addGap(40, 40, 40))))
             .addGroup(showDocPanelLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel27))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addComponent(backshowDoc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(showDocPanelLayout.createSequentialGroup()
-                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(showDocPanelLayout.createSequentialGroup()
-                                .addComponent(DRangeDocsYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(DRangeDocsMonth1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(DRangeDocsDay1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(showDocPanelLayout.createSequentialGroup()
-                                .addComponent(DRangeDocsYear, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(DRangeDocsMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(DRangeDocsDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(369, 369, 369)
+                .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         showDocPanelLayout.setVerticalGroup(
@@ -870,37 +935,48 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addComponent(peopleDocList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CostDocList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
-                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DRangeDocsDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DRangeDocsYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DRangeDocsMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DRangeDocsDay1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DRangeDocsYear1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DRangeDocsMonth1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                    .addGroup(showDocPanelLayout.createSequentialGroup()
+                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DRangeDocsDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DRangeDocsYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DRangeDocsMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel48)
+                            .addComponent(jLabel51))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(DRangeDocsDay1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DRangeDocsYear1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DRangeDocsMonth1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel49)
+                                .addComponent(jLabel50))
+                            .addComponent(jLabel27))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52))
         );
 
-        addDocPanel.setBackground(new java.awt.Color(204, 204, 255));
+        addDocPanel.setBackground(new java.awt.Color(153, 153, 153));
         addDocPanel.setForeground(new java.awt.Color(204, 204, 204));
 
-        jScrollPane5.setBackground(new java.awt.Color(204, 255, 153));
+        scrollDoc.setBackground(new java.awt.Color(204, 255, 153));
 
-        addingDocPanel.setBackground(new java.awt.Color(204, 153, 255));
+        addingDocPanel.setBackground(new java.awt.Color(102, 102, 102));
         addingDocPanel.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel15.setBackground(new java.awt.Color(153, 153, 153));
         jLabel15.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("مبلغ");
 
+        jLabel16.setBackground(new java.awt.Color(153, 153, 153));
         jLabel16.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("توضیحات");
 
         payeeDocAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -915,18 +991,26 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        jLabel13.setBackground(new java.awt.Color(153, 153, 153));
         jLabel13.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("مشخصات سند");
 
+        creditorBtn.setBackground(new java.awt.Color(153, 153, 153));
         buttonGroup2.add(creditorBtn);
         creditorBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        creditorBtn.setForeground(new java.awt.Color(255, 255, 255));
         creditorBtn.setText("بستانکار");
 
+        debtorBtn.setBackground(new java.awt.Color(153, 153, 153));
         buttonGroup2.add(debtorBtn);
         debtorBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        debtorBtn.setForeground(new java.awt.Color(255, 255, 255));
         debtorBtn.setText("بدهکار");
 
+        jLabel14.setBackground(new java.awt.Color(153, 153, 153));
         jLabel14.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("طرف حساب");
 
         jLabel39.setForeground(new java.awt.Color(255, 255, 255));
@@ -938,16 +1022,14 @@ public class DashboardMenu extends javax.swing.JFrame {
             addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addingDocPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingDocPanelLayout.createSequentialGroup()
-                        .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(creditorBtn)
-                            .addComponent(debtorBtn))
-                        .addGap(65, 65, 65)
-                        .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(payeeDocAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                            .addComponent(costDocAdd)))
-                    .addComponent(discriptionDocAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(creditorBtn)
+                    .addComponent(debtorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(payeeDocAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                    .addComponent(costDocAdd)
+                    .addComponent(discriptionDocAdd))
                 .addGap(18, 18, 18)
                 .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -958,38 +1040,36 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
             .addGroup(addingDocPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
                 .addContainerGap())
         );
         addingDocPanelLayout.setVerticalGroup(
             addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addingDocPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(payeeDocAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
-                    .addComponent(creditorBtn))
                 .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addingDocPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(payeeDocAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14)
+                            .addComponent(creditorBtn))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
                             .addComponent(costDocAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(addingDocPanelLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(debtorBtn)))
+                    .addComponent(debtorBtn))
                 .addGap(18, 18, 18)
                 .addGroup(addingDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(discriptionDocAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel16)
+                    .addComponent(discriptionDocAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel39)
-                .addContainerGap(408, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jScrollPane5.setViewportView(addingDocPanel);
+        scrollDoc.setViewportView(addingDocPanel);
 
         submitDoc.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         submitDoc.setText("ثبت");
@@ -1013,6 +1093,9 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("افزودن سند");
 
+        groupDocSubmit.setBackground(new java.awt.Color(153, 153, 255));
+        groupDocSubmit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        groupDocSubmit.setForeground(new java.awt.Color(255, 255, 255));
         groupDocSubmit.setText("+ ");
         groupDocSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1020,50 +1103,51 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel38.setText("numberOfdocs");
+        countDoc.setText(" ");
 
         javax.swing.GroupLayout addDocPanelLayout = new javax.swing.GroupLayout(addDocPanel);
         addDocPanel.setLayout(addDocPanelLayout);
         addDocPanelLayout.setHorizontalGroup(
             addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addDocPanelLayout.createSequentialGroup()
-                .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
+                .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(addDocPanelLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel32))
                     .addGroup(addDocPanelLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
+                        .addGap(128, 128, 128)
                         .addComponent(addDocback)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(submitDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel38)
+                        .addComponent(countDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
-                .addGap(0, 35, Short.MAX_VALUE)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+            .addGroup(addDocPanelLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(scrollDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         addDocPanelLayout.setVerticalGroup(
             addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addDocPanelLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel32)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scrollDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                 .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addDocback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel38))
+                    .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(countDoc))
                 .addGap(32, 32, 32))
         );
 
-        addPeoplePanel.setBackground(new java.awt.Color(204, 204, 204));
+        addPeoplePanel.setBackground(new java.awt.Color(153, 153, 153));
+        addPeoplePanel.setForeground(new java.awt.Color(255, 255, 255));
 
         emailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1073,6 +1157,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         buttonGroup1.add(employeeBtn);
         employeeBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        employeeBtn.setForeground(new java.awt.Color(255, 255, 255));
         employeeBtn.setText("کارمند");
         employeeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1082,6 +1167,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         buttonGroup1.add(clientBtn);
         clientBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        clientBtn.setForeground(new java.awt.Color(255, 255, 255));
         clientBtn.setText("مشتری");
         clientBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1091,6 +1177,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         buttonGroup1.add(partnerBtn);
         partnerBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        partnerBtn.setForeground(new java.awt.Color(255, 255, 255));
         partnerBtn.setText("شریک تجاری");
         partnerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1116,18 +1203,23 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("نام ");
 
         jLabel9.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("کد ملی");
 
         jLabel10.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("شماره تلفن");
 
         jLabel11.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("ایمیل");
 
         jLabel12.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("آدرس");
 
         addPeopleback.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
@@ -1148,12 +1240,12 @@ public class DashboardMenu extends javax.swing.JFrame {
         addPeoplePanelLayout.setHorizontalGroup(
             addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addPeoplePanelLayout.createSequentialGroup()
-                .addContainerGap(82, Short.MAX_VALUE)
+                .addContainerGap(161, Short.MAX_VALUE)
                 .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPeoplePanelLayout.createSequentialGroup()
-                        .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(addId, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addName, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(addId, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                            .addComponent(addName))
                         .addGap(42, 42, 42)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
@@ -1181,10 +1273,9 @@ public class DashboardMenu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10)
-                                    .addGroup(addPeoplePanelLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel11))
-                                    .addComponent(jLabel12))))
+                                    .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel11)
+                                        .addComponent(jLabel12)))))
                         .addGap(19, 19, 19))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPeoplePanelLayout.createSequentialGroup()
                         .addComponent(jLabel33)
@@ -1210,23 +1301,28 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addcategory, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel10)
+                    .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AddressField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(89, 89, 89)
+                    .addGroup(addPeoplePanelLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(AddressField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addPeoplePanelLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(52, 52, 52)
                 .addGroup(addPeoplePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addPeopleback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnconfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
+
+        tablePanel.setBackground(new java.awt.Color(153, 153, 153));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1272,7 +1368,11 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGap(61, 61, 61))
         );
 
+        addCategoryPanel.setBackground(new java.awt.Color(153, 153, 153));
+        addCategoryPanel.setForeground(new java.awt.Color(255, 255, 255));
+
         jLabel6.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("عنوان دسته بندی را وارد کنید");
 
         confirmCategory.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
@@ -1293,18 +1393,23 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         jLabel40.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("تلفن");
 
         jLabel41.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("نام");
 
         jLabel42.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
         jLabel42.setText("ایمیل");
 
         jLabel43.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
         jLabel43.setText("آدرس");
 
         jLabel44.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
         jLabel44.setText("کد ملی");
 
         jLabel34.setBackground(new java.awt.Color(102, 102, 255));
@@ -1316,30 +1421,14 @@ public class DashboardMenu extends javax.swing.JFrame {
         addCategoryPanel.setLayout(addCategoryPanelLayout);
         addCategoryPanelLayout.setHorizontalGroup(
             addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addCategoryPanelLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(addback)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(confirmCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 141, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addCategoryPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(58, Short.MAX_VALUE)
                 .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addCategoryPanelLayout.createSequentialGroup()
-                        .addComponent(categoryFieldَAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(categoryFieldَAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addCategoryPanelLayout.createSequentialGroup()
-                        .addComponent(categoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addCategoryPanelLayout.createSequentialGroup()
-                        .addComponent(categoryFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addCategoryPanelLayout.createSequentialGroup()
                         .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(addCategoryPanelLayout.createSequentialGroup()
@@ -1355,17 +1444,36 @@ public class DashboardMenu extends javax.swing.JFrame {
                                     .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap())
-                    .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addCategoryPanelLayout.createSequentialGroup()
+                        .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(categoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(addCategoryPanelLayout.createSequentialGroup()
+                                .addComponent(categoryFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(19, 19, 19))))
+            .addGroup(addCategoryPanelLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addCategoryPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(addCategoryPanelLayout.createSequentialGroup()
+                        .addComponent(addback)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(confirmCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 141, Short.MAX_VALUE))))
         );
         addCategoryPanelLayout.setVerticalGroup(
             addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addCategoryPanelLayout.createSequentialGroup()
                 .addComponent(jLabel34)
-                .addGap(28, 28, 28)
-                .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(categoryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(categoryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addCategoryPanelLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
@@ -1388,13 +1496,15 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(categoryFieldَAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                    .addComponent(categoryFieldَAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(addCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(confirmCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
+
+        dashboard.setBackground(new java.awt.Color(102, 102, 102));
 
         dashboardBtnshowCheck.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         dashboardBtnshowCheck.setText("نمایش چک");
@@ -1530,7 +1640,11 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
+        showCheckpanel.setBackground(new java.awt.Color(153, 153, 153));
+        showCheckpanel.setForeground(new java.awt.Color(255, 255, 255));
+
         payeeLabelCheck.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        payeeLabelCheck.setForeground(new java.awt.Color(255, 255, 255));
         payeeLabelCheck.setText("طرف حساب");
 
         ShowChecksbtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
@@ -1551,6 +1665,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         timeFilter.add(dailyCheckRBtn);
         dailyCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        dailyCheckRBtn.setForeground(new java.awt.Color(255, 255, 255));
         dailyCheckRBtn.setText("روزانه");
         dailyCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1560,6 +1675,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         timeFilter.add(weeklyCheckRBtn);
         weeklyCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        weeklyCheckRBtn.setForeground(new java.awt.Color(255, 255, 255));
         weeklyCheckRBtn.setText("هفتگی");
         weeklyCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1569,6 +1685,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         timeFilter.add(MonthlyCheckRBtn);
         MonthlyCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        MonthlyCheckRBtn.setForeground(new java.awt.Color(255, 255, 255));
         MonthlyCheckRBtn.setText("ماهانه");
         MonthlyCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1592,6 +1709,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         costLabelCheck.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        costLabelCheck.setForeground(new java.awt.Color(255, 255, 255));
         costLabelCheck.setText("قیمت");
 
         costCheckList.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
@@ -1603,6 +1721,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         filters.add(TimeCheckRBtn);
         TimeCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        TimeCheckRBtn.setForeground(new java.awt.Color(255, 255, 255));
         TimeCheckRBtn.setText("فیلتر زمان");
         TimeCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1612,6 +1731,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         filters.add(payeeCheckRBtn);
         payeeCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        payeeCheckRBtn.setForeground(new java.awt.Color(255, 255, 255));
         payeeCheckRBtn.setText("طرف حساب");
         payeeCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1621,6 +1741,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
         filters.add(costCheckRBtn);
         costCheckRBtn.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        costCheckRBtn.setForeground(new java.awt.Color(255, 255, 255));
         costCheckRBtn.setText("فیلتر قیمت");
         costCheckRBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1629,19 +1750,40 @@ public class DashboardMenu extends javax.swing.JFrame {
         });
 
         jLabel37.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText("فیلترها");
 
         jLabel24.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("بازه ی زمانی مورد نظر را وارد کنید");
 
         jLabel5.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("نمایش چک ها");
 
         jLabel28.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("از تاریخ");
 
         jLabel35.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("تا تاریخ");
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel38.setText("/");
+
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel45.setText("/");
+
+        jLabel46.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel46.setText("/");
+
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel47.setText("/");
 
         javax.swing.GroupLayout showCheckpanelLayout = new javax.swing.GroupLayout(showCheckpanel);
         showCheckpanel.setLayout(showCheckpanelLayout);
@@ -1653,20 +1795,21 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGroup(showCheckpanelLayout.createSequentialGroup()
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(showCheckpanelLayout.createSequentialGroup()
-                                .addComponent(MonthlyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                                .addComponent(weeklyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dailyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TimeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(showCheckpanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(payeeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(showCheckpanelLayout.createSequentialGroup()
                                 .addComponent(monthscheckList, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(costCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(costCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(payeeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                        .addComponent(MonthlyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(weeklyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(dailyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TimeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(showCheckpanelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1689,36 +1832,47 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(showCheckpanelLayout.createSequentialGroup()
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showCheckpanelLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
+                        .addGap(61, 61, 61)
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel28))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, showCheckpanelLayout.createSequentialGroup()
-                                .addComponent(DRangeDocsYear2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(DRangeDocsMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(DRangeDocsDay2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(DRangeDocsYear2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DRangeChecksYear, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(showCheckpanelLayout.createSequentialGroup()
-                                .addComponent(DRangeChecksYear, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(DRangeChecksMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabel45)
+                                .addGap(5, 5, 5))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(DRangeChecksDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(15, 15, 15))
+                                .addComponent(jLabel47)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                .addComponent(DRangeDocsMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel46)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DRangeDocsMonth3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                .addComponent(DRangeChecksMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel38)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DRangeChecksYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, 0)
+                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel35)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(backshowDoc1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(backshowDoc1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(showCheckpanelLayout.createSequentialGroup()
-                        .addComponent(ShowChecksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(157, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(showCheckpanelLayout.createSequentialGroup()
+                        .addComponent(ShowChecksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(183, Short.MAX_VALUE))))
         );
         showCheckpanelLayout.setVerticalGroup(
             showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1749,23 +1903,28 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DRangeChecksDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DRangeChecksYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DRangeChecksMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28))
+                    .addComponent(jLabel28)
+                    .addComponent(DRangeChecksYear1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel38)
+                    .addComponent(jLabel45))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DRangeDocsDay2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DRangeDocsYear2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DRangeDocsMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DRangeDocsMonth3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel46)
+                    .addComponent(jLabel47))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backshowDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ShowChecksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
         );
 
+        checksReport.setBackground(new java.awt.Color(153, 153, 153));
         checksReport.setFont(new java.awt.Font("B Roya", 0, 14)); // NOI18N
         checksReport.setPreferredSize(new java.awt.Dimension(455, 444));
 
@@ -1822,6 +1981,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        docsReport.setBackground(new java.awt.Color(153, 153, 153));
         docsReport.setPreferredSize(new java.awt.Dimension(455, 444));
 
         docsTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -1899,9 +2059,9 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 53, Short.MAX_VALUE)
+                    .addGap(0, 90, Short.MAX_VALUE)
                     .addComponent(showDocPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 54, Short.MAX_VALUE)))
+                    .addGap(0, 91, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1914,9 +2074,9 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(104, Short.MAX_VALUE)
+                    .addContainerGap(154, Short.MAX_VALUE)
                     .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(102, Short.MAX_VALUE)))
+                    .addContainerGap(153, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1943,7 +2103,7 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(178, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1976,9 +2136,9 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(112, Short.MAX_VALUE)
+                    .addContainerGap(137, Short.MAX_VALUE)
                     .addComponent(tablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(60, Short.MAX_VALUE)))
+                    .addContainerGap(85, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -2019,14 +2179,6 @@ public class DashboardMenu extends javax.swing.JFrame {
     private void emailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailFieldActionPerformed
-
-    private void costDocAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costDocAddActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_costDocAddActionPerformed
-
-    private void payeeDocAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payeeDocAddActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_payeeDocAddActionPerformed
 
     private void payee3CostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payee3CostActionPerformed
         // TODO add your handling code here:
@@ -2137,6 +2289,8 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmCategoryActionPerformed
 
     private void registerCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCheckActionPerformed
+
+//get time of the system
         String payeeDoc = payeeCheckAdd.getText();
         String discriptionDoc = discriptionTextAdd.getText();
         String costDoc = payeeCostAdd.getText();
@@ -2164,6 +2318,9 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_backshowCheckActionPerformed
 
     private void submitDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitDocActionPerformed
+
+
+//get time of the system
         String addPayeeDoc = payeeDocAdd.getText();
         String addCostDoc = costDocAdd.getText();
         String addDiscriptionDoc = discriptionDocAdd.getText();
@@ -2319,19 +2476,41 @@ public class DashboardMenu extends javax.swing.JFrame {
         landPage(LoginPanel);
     }//GEN-LAST:event_backToLoginActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-
-//GraphicsManager.darkmode();
-
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
     private void groupDocSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupDocSubmitActionPerformed
-        addDocLogic.groupedSubmit(submitDoc);
+
+        addDocCounter++;
+        JPanel addingDocPanel=new JPanel();
+     //   scrollDoc=new JScrollPane(addingDocPanel);
+        addingDocPanel.setLayout(new BoxLayout(addingDocPanel,BoxLayout.Y_AXIS));
+        addingDocPanel.add(new addingDocPanel());
+        scrollDoc.add(Box.createVerticalGlue());
+//        this.getContentPane().add(scrollDoc);
+       countDoc.setText(String.valueOf(addDocCounter)); 
+     //   addDocPanel.getContentPane().add(scrollDoc);
     }//GEN-LAST:event_groupDocSubmitActionPerformed
 
     private void dashboardBtnshowCheck1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnshowCheck1ActionPerformed
         landPage(stateChangePanel);
     }//GEN-LAST:event_dashboardBtnshowCheck1ActionPerformed
+
+    private void addCheckBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCheckBack1ActionPerformed
+        addCheckCounter++;
+        countCheck.setText(String.valueOf(addCheckCounter)); 
+
+    }//GEN-LAST:event_addCheckBack1ActionPerformed
+
+    private void passWordRecoveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passWordRecoveryActionPerformed
+       JOptionPane.showMessageDialog(addDocPanel, "مشکل خودتان است",
+                    "", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_passWordRecoveryActionPerformed
+
+    private void costDocAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costDocAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_costDocAddActionPerformed
+
+    private void payeeDocAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payeeDocAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_payeeDocAddActionPerformed
     public void filterVisibelity(JRadioButton Rbtn) {
         costCheckList.setEnabled(costCheckRBtn.isSelected());
         peopleCheckList.setEnabled(payeeCheckRBtn.isSelected());
@@ -2434,19 +2613,18 @@ public class DashboardMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddressField;
     protected javax.swing.JComboBox<String> CostDocList;
-    private javax.swing.JTextField DRangeChecksDay;
     private javax.swing.JTextField DRangeChecksMonth;
     private javax.swing.JTextField DRangeChecksYear;
+    private javax.swing.JTextField DRangeChecksYear1;
     private javax.swing.JTextField DRangeDocsDay;
     private javax.swing.JTextField DRangeDocsDay1;
-    private javax.swing.JTextField DRangeDocsDay2;
     private javax.swing.JTextField DRangeDocsMonth;
     private javax.swing.JTextField DRangeDocsMonth1;
     private javax.swing.JTextField DRangeDocsMonth2;
+    private javax.swing.JTextField DRangeDocsMonth3;
     private javax.swing.JTextField DRangeDocsYear;
     private javax.swing.JTextField DRangeDocsYear1;
     private javax.swing.JTextField DRangeDocsYear2;
-    private javax.swing.JPanel LoginError;
     private javax.swing.JPanel LoginPanel;
     private javax.swing.JRadioButton MonthlyCheckRBtn;
     private javax.swing.JRadioButton MonthlyDoc;
@@ -2456,6 +2634,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JRadioButton TimeDocRBtn;
     private javax.swing.JPanel addCategoryPanel;
     private javax.swing.JButton addCheckBack;
+    private javax.swing.JButton addCheckBack1;
     private javax.swing.JScrollPane addCheckScroll;
     private javax.swing.JPanel addDocPanel;
     private javax.swing.JButton addDocback;
@@ -2494,6 +2673,8 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JRadioButton costDocRBtn;
     private javax.swing.JLabel costLabel;
     private javax.swing.JLabel costLabelCheck;
+    private javax.swing.JLabel countCheck;
+    private javax.swing.JLabel countDoc;
     private javax.swing.JRadioButton creditorBtn;
     private javax.swing.JRadioButton dailyCheckRBtn;
     private javax.swing.JRadioButton dailyِDoc;
@@ -2558,7 +2739,14 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2566,9 +2754,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JComboBox<String> monthsDocList;
     private javax.swing.JComboBox<String> monthscheckList;
@@ -2589,6 +2775,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JTextField phoneField;
     private javax.swing.JButton registerChangeCheck;
     private javax.swing.JButton registerCheck;
+    private javax.swing.JScrollPane scrollDoc;
     private javax.swing.JPanel showCheckpanel;
     private javax.swing.JPanel showDocPanel;
     private javax.swing.JButton signInbtn;

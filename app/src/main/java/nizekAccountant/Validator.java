@@ -47,7 +47,7 @@ public class Validator {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(phone);
 
-        return matcher.find();
+        return matcher.matches();
     }
 
     static boolean addressIsValid(String address) {
@@ -77,7 +77,7 @@ public class Validator {
         String regex = "\\d{2}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(date);
-        return (!matcher.find());
+        return (matcher.matches());
 
     }
     
