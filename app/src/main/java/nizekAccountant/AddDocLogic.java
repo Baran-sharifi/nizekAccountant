@@ -22,15 +22,12 @@ public class AddDocLogic {
     }
 
     void groupedSubmit(JButton btn) {
-          JPanel addingDocPanel = new JPanel();
-     
+        JPanel addingDocPanel = new JPanel();
 
-        }
-
-    
+    }
 
     public boolean canSubmitDoc(String payeeName, String cost, String discription) { //name and password are getting from input field.folan.getText()
-        boolean areFieldsCorrect = false;
+//        boolean areFieldsCorrect = false;
 
 //==========regex check================
         //  boolean emailHasValidate = (Validator.emailIsValid(emailfield));
@@ -41,5 +38,3 @@ public class AddDocLogic {
     }
 
 }
-
-

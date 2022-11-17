@@ -4,18 +4,18 @@
  */
 package nizekAccountant;
 
-import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 /**
  *
  * @author Lenovo
  */
-public class addingDocPanel extends PopupMenu {
+public class AddingDocInputPanel extends JPanel {
 
     private JPanel jPanel1 = new JPanel();
     private JLabel jLabel15 = new JLabel();
@@ -28,8 +28,7 @@ public class addingDocPanel extends PopupMenu {
     private JRadioButton creditorBtn = new JRadioButton();
     private JRadioButton debtorBtn = new JRadioButton();
     private JLabel jLabel14 = new JLabel();
-
-    public addingDocPanel() {
+    public AddingDocInputPanel() {
 
         jLabel15.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
         jLabel15.setText("مبلغ");
@@ -119,4 +118,16 @@ public class addingDocPanel extends PopupMenu {
         );
     }
 
+    @Override
+    public int getHeight() {
+        return 200; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public int getWidth() {
+        return 100; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    
+    
 }

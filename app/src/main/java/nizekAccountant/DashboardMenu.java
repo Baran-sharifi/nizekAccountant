@@ -3,6 +3,7 @@ package nizekAccountant;
 //import testProject.ButtonRounder;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.ScrollPane;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
@@ -15,8 +16,9 @@ import javax.swing.JScrollPane;
  * @author Lenovo
  */
 public class DashboardMenu extends javax.swing.JFrame {
-    int addDocCounter=0;
-    int addCheckCounter=0;
+
+    int addDocCounter = 0;
+    int addCheckCounter = 0;
     boolean submitDocs = false;
     Dimension dimension = new Dimension(72, 26);
     Dimension Docs = new Dimension(100, 100);
@@ -35,9 +37,10 @@ public class DashboardMenu extends javax.swing.JFrame {
      */
     public DashboardMenu() {
         initComponents();
+    //    scrollContainer.setLayout(new BoxLayout(scrollContainer, BoxLayout.Y_AXIS));
 //        jMenuBar1.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         boolean selectedType;
-
+        
         btnmanager = new GraphicsManager(102, 102, 255, dimension);
 
         //  peopleDocList.addItem("Baran");
@@ -375,27 +378,25 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(LoginPanelLayout.createSequentialGroup()
                 .addContainerGap(177, Short.MAX_VALUE)
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(LoginPanelLayout.createSequentialGroup()
-                            .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(LoginPanelLayout.createSequentialGroup()
-                                    .addComponent(emailfieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(LoginPanelLayout.createSequentialGroup()
-                                    .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(LoginPanelLayout.createSequentialGroup()
-                                            .addComponent(enterBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                        .addGroup(LoginPanelLayout.createSequentialGroup()
-                                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(12, 12, 12)))
-                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(82, 82, 82))
-                        .addGroup(LoginPanelLayout.createSequentialGroup()
-                            .addGap(308, 308, 308)
-                            .addComponent(jLabel22)
-                            .addContainerGap()))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup()
+                        .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(LoginPanelLayout.createSequentialGroup()
+                                .addComponent(emailfieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(LoginPanelLayout.createSequentialGroup()
+                                .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(LoginPanelLayout.createSequentialGroup()
+                                        .addComponent(enterBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                    .addGroup(LoginPanelLayout.createSequentialGroup()
+                                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(12, 12, 12)))
+                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(LoginPanelLayout.createSequentialGroup()
+                                .addGap(308, 308, 308)
+                                .addComponent(jLabel22)))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup()
                         .addComponent(passWordRecovery, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1040,7 +1041,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
             .addGroup(addingDocPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+                .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
                 .addContainerGap())
         );
         addingDocPanelLayout.setVerticalGroup(
@@ -1115,7 +1116,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel32))
                     .addGroup(addDocPanelLayout.createSequentialGroup()
-                        .addGap(128, 128, 128)
+                        .addGap(150, 150, 150)
                         .addComponent(addDocback)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(submitDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1123,26 +1124,26 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(countDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 175, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(addDocPanelLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDocPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(scrollDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGap(56, 56, 56))
         );
         addDocPanelLayout.setVerticalGroup(
             addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addDocPanelLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel32)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scrollDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(scrollDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93)
                 .addGroup(addDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addDocback, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(countDoc))
+                    .addComponent(countDoc)
+                    .addComponent(groupDocSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
         );
 
@@ -1608,7 +1609,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                                 .addComponent(dashboardlabel))
                             .addGroup(dashboardLayout.createSequentialGroup()
                                 .addComponent(dashboardBtnshowCheck1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addGap(0, 265, Short.MAX_VALUE))))))
         );
         dashboardLayout.setVerticalGroup(
             dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1910,13 +1911,14 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addComponent(jLabel38)
                     .addComponent(jLabel45))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DRangeDocsYear2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DRangeDocsMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DRangeDocsMonth3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel46)
-                    .addComponent(jLabel47))
+                    .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(DRangeDocsYear2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DRangeDocsMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DRangeDocsMonth3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel46)
+                        .addComponent(jLabel47)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backshowDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2066,7 +2068,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(addDocPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 1, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -2218,7 +2220,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void dashboardBtnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnaddActionPerformed
         landPage(addcheckPanel);
-
+        
     }//GEN-LAST:event_dashboardBtnaddActionPerformed
 
     private void dashboardBtnshowDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnshowDocActionPerformed
@@ -2229,7 +2231,9 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_dashboardBtnshowDocActionPerformed
 
     private void dashboardBtnaddDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnaddDocActionPerformed
+
         landPage(addDocPanel);
+      //   landPage(addingDocPanel);
 //        addDocPanel.setVisible(true);
         //      dashboard.setVisible(false);
     }//GEN-LAST:event_dashboardBtnaddDocActionPerformed
@@ -2319,7 +2323,6 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void submitDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitDocActionPerformed
 
-
 //get time of the system
         String addPayeeDoc = payeeDocAdd.getText();
         String addCostDoc = costDocAdd.getText();
@@ -2352,7 +2355,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         } else if (clientBtn.isSelected()) {
             type = "client";
         }
-        if (addUserLogic.canSubmitPeople(userName,phone, userId, addressfieldUser, emailfieldUser)) {
+        if (addUserLogic.canSubmitPeople(userName, phone, userId, addressfieldUser, emailfieldUser)) {
             //     addUserLogic.passUserTodataBase(userId, userName, phone, addressfieldUser, type);
         } else {
             JOptionPane.showMessageDialog(addDocPanel, "فیلد  های سند را صحیح وارد کنید",
@@ -2479,14 +2482,11 @@ public class DashboardMenu extends javax.swing.JFrame {
     private void groupDocSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupDocSubmitActionPerformed
 
         addDocCounter++;
-        JPanel addingDocPanel=new JPanel();
-     //   scrollDoc=new JScrollPane(addingDocPanel);
-        addingDocPanel.setLayout(new BoxLayout(addingDocPanel,BoxLayout.Y_AXIS));
-        addingDocPanel.add(new addingDocPanel());
-        scrollDoc.add(Box.createVerticalGlue());
-//        this.getContentPane().add(scrollDoc);
-       countDoc.setText(String.valueOf(addDocCounter)); 
-     //   addDocPanel.getContentPane().add(scrollDoc);
+        
+     //   scrollContainer.add(new AddingDocInputPanel());
+     //   scrollContainer.add(Box.createVerticalGlue());
+    //    this.getContentPane().add(scrollDoc);
+        countDoc.setText(String.valueOf(addDocCounter));
     }//GEN-LAST:event_groupDocSubmitActionPerformed
 
     private void dashboardBtnshowCheck1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnshowCheck1ActionPerformed
@@ -2495,13 +2495,13 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void addCheckBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCheckBack1ActionPerformed
         addCheckCounter++;
-        countCheck.setText(String.valueOf(addCheckCounter)); 
+        countCheck.setText(String.valueOf(addCheckCounter));
 
     }//GEN-LAST:event_addCheckBack1ActionPerformed
 
     private void passWordRecoveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passWordRecoveryActionPerformed
-       JOptionPane.showMessageDialog(addDocPanel, "مشکل خودتان است",
-                    "", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(addDocPanel, "مشکل خودتان است",
+                "", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_passWordRecoveryActionPerformed
 
     private void costDocAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costDocAddActionPerformed
@@ -2560,6 +2560,7 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     public void landPage(JPanel panel) {
 //        Monthscheckshow.setVisible(false);
+      //  addingDocPanel.setVisible(panel==addingDocPanel);
         LoginPanel.setVisible(panel == LoginPanel);
         dashboard.setVisible(panel == dashboard);
         addcheckPanel.setVisible(panel == addcheckPanel);
