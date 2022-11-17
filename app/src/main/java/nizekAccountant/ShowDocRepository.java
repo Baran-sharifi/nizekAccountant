@@ -64,8 +64,7 @@ public class ShowDocRepository extends DashboardMenu implements TableModel  {
                 return "dateOfDoc";
             }
             case 4->{
-            
-            
+    
                 return "cost";
             
             }
