@@ -18,7 +18,7 @@ import javax.swing.table.TableModel;
 public class ShowDocRepository extends DashboardMenu implements TableModel  {
 
    // ArrayList<String> PeopleDoc = new ArrayList<>();
-    private ArrayList<String> list = new ArrayList<>();
+    private ArrayList<String> list = new ArrayList<>();   //change this with your own normalDocList
     Manager manager= new Manager();
     //private List<NormalDoc> normalDocList = new ArrayList<>();
     
@@ -29,8 +29,8 @@ public class ShowDocRepository extends DashboardMenu implements TableModel  {
         
     }
 
-    public void showPeopleOncombo() {
-
+    public void showPeopleOncombo() {   //ignore this one
+//its for adding people to combo box 
         // for(String person:PeopleDoc){
         //  peopleDocList.addItem(person);
         //  }
@@ -210,10 +210,10 @@ public class ShowDocRepository extends DashboardMenu implements TableModel  {
 
  
 
-    public String toString() {
-        return "ShowDocLogicRepository{" + "PeopleDoc=" + PeopleDoc + '}';
-        //return list.toString();
-
-    }
+//    public String toString() {
+//        return "ShowDocLogicRepository{" + "PeopleDoc=" + PeopleDoc + '}';
+//        //return list.toString();
+//
+//    }
 
 }
