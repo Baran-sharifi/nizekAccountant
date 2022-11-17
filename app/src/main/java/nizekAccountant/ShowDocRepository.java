@@ -4,6 +4,8 @@
  */
 package nizekAccountant;
 
+import DocModels.NormalDoc;
+import ModelManager.Manager;
 import java.awt.List;
 import java.util.ArrayList;
 import javax.swing.event.TableModelListener;
@@ -13,15 +15,18 @@ import javax.swing.table.TableModel;
  *
  * @author Lenovo
  */
-public class ShowDocRepository implements TableModel {
+public class ShowDocRepository extends DashboardMenu implements TableModel  {
 
-    ArrayList<String> PeopleDoc = new ArrayList<>();
-
-    // private ArrayList<Student> list = new ArrayList<>();  
+   // ArrayList<String> PeopleDoc = new ArrayList<>();
     private ArrayList<String> list = new ArrayList<>();
-
+    Manager manager= new Manager();
+    //private List<NormalDoc> normalDocList = new ArrayList<>();
+    
+   
+    
     public ShowDocRepository() {
-
+       docsTable.setModel(this); 
+        
     }
 
     public void showPeopleOncombo() {
@@ -40,7 +45,7 @@ public class ShowDocRepository implements TableModel {
 
     @Override
     public int getColumnCount() {
-        return 4; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return 6; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
@@ -50,14 +55,25 @@ public class ShowDocRepository implements TableModel {
                 return "payeeName";
             }
             case 1 -> {
-                return "isCreditor";
+                return "isDebtor";
             }
             case 2 -> {
-                return "isDebtor";
+                return "isCreditor";
             }
             case 3 -> {
                 return "dateOfDoc";
             }
+            case 4->{
+            
+            
+                return "cost";
+            
+            }
+            
+            case 5 -> {
+            return "discription";
+        }
+            
 
             default ->
                 throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));
@@ -128,9 +144,7 @@ public class ShowDocRepository implements TableModel {
     
     @Override
         public void setValueAt
-        (Object aValue, int rowIndex, int columnIndex
-        
-            ) {
+        (Object aValue, int rowIndex, int columnIndex) {
      
          switch (columnIndex) {
                 case 0 -> {
@@ -148,6 +162,28 @@ public class ShowDocRepository implements TableModel {
                 //list.get(rowIndex).setdateNizek(String) aValue;
                 
                 }
+                
+                 case 4 ->{
+                
+                //list.get(rowIndex).setdateNizek(String) aValue;
+                
+                }
+                  case 5 ->{
+                
+                //list.get(rowIndex).setCost(String) aValue;
+                
+                }
+                
+                 case 6 ->{
+                
+                //list.get(rowIndex).setDiscription(String) aValue;
+                
+                }
+                
+                
+                
+                
+                
                 
                 default ->
                     throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));

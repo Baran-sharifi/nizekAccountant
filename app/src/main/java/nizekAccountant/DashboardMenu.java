@@ -2038,7 +2038,7 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(docsReportLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(docsReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
                     .addGroup(docsReportLayout.createSequentialGroup()
                         .addComponent(backshowCheck1)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -2049,12 +2049,13 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, docsReportLayout.createSequentialGroup()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(backshowCheck1)
                 .addContainerGap())
         );
 
+        jTable2.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -2096,13 +2097,14 @@ public class DashboardMenu extends javax.swing.JFrame {
             .addGroup(peopleReportsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(peopleReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(peopleReportsLayout.createSequentialGroup()
-                        .addComponent(backshowCheck2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, peopleReportsLayout.createSequentialGroup()
-                        .addGap(0, 504, Short.MAX_VALUE)
-                        .addComponent(jLabel52)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel52))
+                    .addGroup(peopleReportsLayout.createSequentialGroup()
+                        .addGroup(peopleReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(backshowCheck2)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         peopleReportsLayout.setVerticalGroup(
@@ -2523,19 +2525,13 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_TimeDocRBtnActionPerformed
 
     private void CostDocListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostDocListActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_CostDocListActionPerformed
 
     private void peopleDocListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peopleDocListActionPerformed
-        //get the selected item
     }//GEN-LAST:event_peopleDocListActionPerformed
 
     private void monthsDocListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthsDocListActionPerformed
         String chosenMonth = monthsDocList.getSelectedItem().toString();
-        //  System.out.println(chosenMonth);
-        //  if(chosenMonth.equals("فروردین")){
-        //  System.out.println("yay");
-        // }
     }//GEN-LAST:event_monthsDocListActionPerformed
 
     private void MonthlyDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthlyDocActionPerformed
@@ -2550,7 +2546,6 @@ public class DashboardMenu extends javax.swing.JFrame {
     private void backshowDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backshowDocActionPerformed
 
         landPage(dashboard);
-        //  showDOcPanel.setVisible(false);
     }//GEN-LAST:event_backshowDocActionPerformed
 
     private void ShowDocsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowDocsbtnActionPerformed
@@ -2760,7 +2755,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JTextField categoryFieldName;
     private javax.swing.JTextField categoryFieldPhone;
     private javax.swing.JTextField categoryFieldَAddress;
-    private javax.swing.JPanel checksReport;
+    protected javax.swing.JPanel checksReport;
     private javax.swing.JTable checksTable;
     private javax.swing.JRadioButton clientBtn;
     private javax.swing.JButton confirmCategory;
@@ -2786,8 +2781,8 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane discriptionCheck;
     private javax.swing.JTextField discriptionDocAdd;
     private javax.swing.JTextArea discriptionTextAdd;
-    private javax.swing.JPanel docsReport;
-    private javax.swing.JTable docsTable;
+    protected javax.swing.JPanel docsReport;
+    public javax.swing.JTable docsTable;
     private javax.swing.JTextField emailField;
     protected javax.swing.JTextField emailfieldLogin;
     private javax.swing.JRadioButton employeeBtn;
@@ -2854,7 +2849,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    protected javax.swing.JTable jTable2;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JComboBox<String> monthsDocList;
     private javax.swing.JComboBox<String> monthscheckList;
